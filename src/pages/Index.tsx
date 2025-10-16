@@ -1,6 +1,15 @@
 import { SpinWheel } from "@/components/SpinWheel";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Users, Shuffle, Zap } from "lucide-react";
+import {
+  Sparkles,
+  Users,
+  Shuffle,
+  Zap,
+  GraduationCap,
+  Briefcase,
+  PartyPopper,
+  Home,
+} from "lucide-react";
 import { Helmet } from "react-helmet";
 
 const Index = () => {
@@ -47,8 +56,8 @@ const Index = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="w-full px-4 lg:px-6 py-8 bg-gradient-to-b from-background to-muted/20">
-        <div className="max-w-7xl mx-auto text-center mb-10">
+      <section className="w-full py-8 bg-gradient-to-b from-background to-muted/20 relative">
+        <div className="max-w-7xl mx-auto text-center mb-10 px-4 lg:px-6">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
             <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
               Spin Wh
@@ -68,9 +77,9 @@ const Index = () => {
           <p className="text-sm text-muted-foreground mb-8">
             The ultimate random picker tool for fair decisions
           </p>
-
-          <SpinWheel />
         </div>
+
+        <SpinWheel />
       </section>
 
       <section className="w-full px-4 lg:px-6 py-16 md:py-20 bg-muted/30">
@@ -215,8 +224,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">🎓</span>
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <GraduationCap className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold">Education</h3>
               </div>
@@ -242,8 +251,8 @@ const Index = () => {
 
             <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">💼</span>
+                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Briefcase className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold">Business</h3>
               </div>
@@ -269,8 +278,8 @@ const Index = () => {
 
             <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">🎉</span>
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <PartyPopper className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold">Entertainment</h3>
               </div>
@@ -296,8 +305,8 @@ const Index = () => {
 
             <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">👨‍👩‍👧‍👦</span>
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Home className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold">Family</h3>
               </div>

@@ -1,6 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Home, Info, BookOpen, Mail } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  Info,
+  BookOpen,
+  Mail,
+  Shield,
+  Lock,
+} from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,20 +31,22 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     { to: "/about", label: "About", icon: Info },
     { to: "/blog", label: "Blog", icon: BookOpen },
     { to: "/contact", label: "Contact", icon: Mail },
+    { to: "/disclaimer", label: "Disclaimer", icon: Shield },
+    { to: "/privacy", label: "Privacy", icon: Lock },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b bg-card/95 backdrop-blur-md sticky top-0 z-50">
-        <nav className="container mx-auto px-4 lg:px-6">
-          <div className="flex items-center justify-between h-20 md:h-24 lg:h-28">
+        <nav className="container mx-auto ">
+          <div className="flex items-center justify-between h-16 ">
             {/* Logo */}
             <Link to="/" className="flex items-center group relative">
               <div className="relative">
                 <img
                   src={logo}
                   alt="Hi Honey Logo"
-                  className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 transform group-hover:scale-110 transition-transform duration-300"
+                  className="h-12 px-2 transform group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div className="flex flex-col">
@@ -58,7 +69,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-2">
+            <div className="hidden md:flex items-center gap-1 -mr-20">
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 const active = isActive(link.to);
@@ -67,7 +78,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     key={link.to}
                     to={link.to}
                     className={`
-                      relative px-4 lg:px-5 py-2 rounded-lg font-medium text-sm lg:text-base
+                      relative px-3 lg:px-4 py-2.5 rounded-lg font-medium text-sm lg:text-base
                       transition-all duration-300 ease-out
                       flex items-center gap-2
                       ${
@@ -78,10 +89,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                       group
                     `}
                   >
-                    <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
+                    <Icon className="h-4 w-4 lg:h-5 lg:w-5 transition-transform group-hover:scale-110" />
                     <span>{link.label}</span>
                     {active && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-primary rounded-t-full" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full" />
                     )}
                   </Link>
                 );

@@ -283,9 +283,6 @@ export const SpinWheel = () => {
       ctx.closePath();
       ctx.fillStyle = entry.color;
       ctx.fill();
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 3;
-      ctx.stroke();
 
       // Draw text
       ctx.save();
@@ -293,10 +290,6 @@ export const SpinWheel = () => {
       ctx.textAlign = "center";
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 13px Inter, sans-serif";
-      ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-      ctx.shadowBlur = 4;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
       ctx.fillText(entry.text, radius - 40, 4);
       ctx.restore();
     });
@@ -306,9 +299,33 @@ export const SpinWheel = () => {
     ctx.arc(0, 0, 35, 0, 2 * Math.PI);
     ctx.fillStyle = "#ffffff";
     ctx.fill();
-    ctx.strokeStyle = "#e5e7eb";
-    ctx.lineWidth = 3;
-    ctx.stroke();
+
+    // Add 3D shadow effect to center circle
+    ctx.beginPath();
+    ctx.arc(0, 0, 35, 0, 2 * Math.PI);
+    const gradient = ctx.createRadialGradient(0, -10, 5, 0, 0, 35);
+    gradient.addColorStop(0, "rgba(255, 255, 255, 0.3)");
+    gradient.addColorStop(0.5, "rgba(200, 200, 200, 0.1)");
+    gradient.addColorStop(1, "rgba(150, 150, 150, 0.2)");
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    // Draw "SPIN" text in center with rotation (slower than wheel for 3D effect)
+    ctx.save();
+    ctx.rotate((rotation * 0.3 * Math.PI) / 180); // 30% of wheel speed for 3D depth
+    ctx.fillStyle = "#000000";
+    ctx.font = "bold 14px Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    // Add subtle shadow for 3D effect
+    ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+    ctx.shadowBlur = 2;
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 1;
+
+    ctx.fillText("SPIN", 0, 0);
+    ctx.restore();
 
     ctx.restore();
 
@@ -322,15 +339,6 @@ export const SpinWheel = () => {
     ctx.closePath();
     ctx.fillStyle = "#ef4444";
     ctx.fill();
-    ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    // Add shadow to pointer
-    ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
-    ctx.shadowBlur = 5;
-    ctx.shadowOffsetX = -2;
-    ctx.shadowOffsetY = 2;
   };
 
   const addEntry = () => {
@@ -507,34 +515,23 @@ export const SpinWheel = () => {
   const activeEntries = entries.filter((entry) => entry.active);
 
   return (
-    <div className="grid lg:grid-cols-[1fr_400px] items-start w-full max-w-7xl mx-auto">
+    <>
       {/* Wheel Section - Centered */}
-      <div className="flex flex-col items-center justify-center gap-4 w-full">
+      <div className="flex flex-col items-center justify-center gap-4 w-full px-4">
         {/* Wheel Card */}
-        <Card className="p-6 bg-gradient-to-br from-card via-card to-card/95 border-2 border-border/50 shadow-2xl w-full max-w-md mx-auto relative overflow-hidden backdrop-blur-sm">
-          {/* Decorative background patterns */}
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary))_1px,transparent_1px)] bg-[length:20px_20px]" />
-          </div>
-          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/5 rounded-full blur-3xl" />
-
-          <div className="relative">
-            {/* Wheel container with glow effect */}
-            <div className="relative">
-              <div
-                className="absolute inset-0 bg-primary/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"
-                style={{ opacity: isSpinning ? 1 : 0 }}
-              />
-              <canvas
-                ref={canvasRef}
-                width={350}
-                height={350}
-                className="w-full h-auto drop-shadow-2xl relative z-10 rounded-full"
-              />
-            </div>
-          </div>
-        </Card>
+        <div className="w-full max-w-md mx-auto relative">
+          <canvas
+            ref={canvasRef}
+            width={350}
+            height={350}
+            onClick={spinWheel}
+            className={`w-full h-auto relative transition-transform duration-200 ${
+              isSpinning || activeEntries.length < 2
+                ? "cursor-not-allowed opacity-70"
+                : "cursor-pointer hover:scale-105"
+            }`}
+          />
+        </div>
 
         {/* Spin Button */}
         <div className="w-full max-w-md mx-auto space-y-3">
@@ -542,7 +539,7 @@ export const SpinWheel = () => {
             onClick={spinWheel}
             disabled={isSpinning || activeEntries.length < 2}
             size="lg"
-            className="text-lg font-bold px-8 py-6 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group"
+            className="text-lg font-bold px-8 py-5 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             {isSpinning ? (
@@ -613,12 +610,8 @@ export const SpinWheel = () => {
       </div>
 
       {/* Controls Section - Right Sidebar */}
-      <div className="lg:ml-auto lg:w-full lg:max-w-[400px]">
-        <Card className="p-5 bg-card/95 border-2 border-border shadow-2xl h-fit sticky top-0 backdrop-blur-sm relative overflow-hidden w-full">
-          {/* Decorative accent bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
-          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border" />
-
+      <div className="w-full lg:w-[400px] lg:absolute lg:right-0 lg:top-0 px-4 lg:px-0 mt-6 lg:mt-0 lg:h-[90vh]">
+        <Card className="p-5 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full h-full flex flex-col">
           {/* Header */}
           <div className="mb-4 relative z-10 pt-3">
             <div className="flex items-center justify-between mb-2">
@@ -707,7 +700,7 @@ export const SpinWheel = () => {
           <Separator className="mb-4" />
 
           {/* Entries List */}
-          <div className="relative z-10">
+          <div className="relative z-10 flex-1 flex flex-col min-h-0">
             <label className="text-[11px] font-bold text-foreground/80 mb-2 block flex items-center justify-between uppercase tracking-wide">
               <span className="flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-primary" />
@@ -717,7 +710,7 @@ export const SpinWheel = () => {
                 {entries.length} Total
               </span>
             </label>
-            <div className="space-y-2 max-h-[240px] overflow-y-auto pr-1.5 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-muted/30 hover:scrollbar-thumb-primary/50">
+            <div className="space-y-2 overflow-y-auto pr-1.5 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-muted/30 hover:scrollbar-thumb-primary/50 flex-1">
               {entries.map((entry, index) => (
                 <div
                   key={entry.id}
@@ -848,6 +841,6 @@ export const SpinWheel = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 };

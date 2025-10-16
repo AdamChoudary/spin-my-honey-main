@@ -411,10 +411,6 @@ const Disclaimer = () => {
             </div>
           </section>
         </Card>
-
-        <div className="text-center text-sm text-muted-foreground mt-8">
-          <p>Last updated: {new Date().toLocaleDateString()}</p>
-        </div>
       </article>
     </>
   );
