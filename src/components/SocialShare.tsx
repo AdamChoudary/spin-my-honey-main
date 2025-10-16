@@ -54,19 +54,6 @@ export const SocialShare = ({
     window.open(link, "_blank", "width=600,height=400");
   };
 
-  const copyEmbedCode = () => {
-    const embedCode = `<iframe src="${url}/embed" width="500" height="500" frameborder="0" title="Hi Honey Spin Wheel"></iframe>\n<p>Powered by <a href="${url}?utm_source=embed&utm_medium=widget&utm_campaign=backlink">Hi Honey Spin Wheel</a></p>`;
-    
-    navigator.clipboard.writeText(embedCode);
-    
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "embed_code_copied", {
-        event_category: "parasite_seo",
-        event_label: "embed_widget",
-      });
-    }
-  };
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -122,20 +109,6 @@ export const SocialShare = ({
               </svg>
               Reddit
             </Button>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-sm font-semibold">Embed on Your Website</p>
-            <Button
-              variant="secondary"
-              className="w-full"
-              onClick={copyEmbedCode}
-            >
-              Copy Embed Code
-            </Button>
-            <p className="text-xs text-muted-foreground">
-              Embed the spin wheel on your site and automatically link back to us
-            </p>
           </div>
         </div>
       </DialogContent>
