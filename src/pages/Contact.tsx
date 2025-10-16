@@ -87,7 +87,7 @@ const Contact = () => {
           name="description"
           content="Get in touch with the Hi Honey team. We'd love to hear your feedback, suggestions, or answer any questions you have."
         />
-        <link rel="canonical" href="https://hihoney.lovable.app/contact" />
+        <link rel="canonical" href="https://hihoney.site/contact" />
       </Helmet>
 
       <section className="container mx-auto px-4 py-12 max-w-4xl">
