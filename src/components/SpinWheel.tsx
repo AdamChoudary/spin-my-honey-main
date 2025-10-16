@@ -18,8 +18,6 @@ import {
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { toast } from "sonner";
-import { SocialShare } from "./SocialShare";
-import { EmbedCodeGenerator } from "./PoweredByBadge";
 import {
   Dialog,
   DialogContent,
@@ -640,15 +638,6 @@ export const SpinWheel = () => {
             <p className="text-[11px] text-muted-foreground ml-3.5 leading-relaxed">
               Add, organize, and control your wheel entries
             </p>
-          </div>
-
-          <Separator className="mb-4" />
-
-          {/* Share & Embed */}
-          <div className="mb-4 relative z-10">
-            <div className="flex gap-2">
-              <SocialShare />
-            </div>
           </div>
 
           <Separator className="mb-4" />

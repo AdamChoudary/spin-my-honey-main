@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { SocialShare } from "@/components/SocialShare";
-import { EmbedCodeGenerator } from "@/components/PoweredByBadge";
 
 const Index = () => {
   return (
@@ -560,14 +559,6 @@ const Index = () => {
                 choices. The possibilities with our{" "}
                 <strong>wheel randomizer</strong> are endless.
               </p>
-            </div>
-
-            {/* Embed Widget Section */}
-            <div className="mt-12">
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">
-                Embed Our Spin Wheel on Your Website
-              </h3>
-              <EmbedCodeGenerator />
             </div>
           </div>
         </section>
