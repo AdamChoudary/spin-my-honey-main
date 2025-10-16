@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    --primary: 280 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 95% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 45 95% 55%;
+    --accent-foreground: 240 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 280 85% 55%;
+
+    --radius: 1rem;
+
+    /* Rainbow gradient colors for wheel */
+    --rainbow-red: 0 85% 60%;
+    --rainbow-orange: 25 95% 55%;
+    --rainbow-yellow: 45 95% 55%;
+    --rainbow-green: 140 70% 50%;
+    --rainbow-cyan: 190 95% 50%;
+    --rainbow-blue: 220 90% 60%;
+    --rainbow-purple: 280 85% 60%;
+    --rainbow-pink: 330 85% 65%;
+
+    /* Gradient definitions */
+    --gradient-rainbow: linear-gradient(
+      135deg,
+      hsl(var(--rainbow-red)) 0%,
+      hsl(var(--rainbow-orange)) 14%,
+      hsl(var(--rainbow-yellow)) 28%,
+      hsl(var(--rainbow-green)) 42%,
+      hsl(var(--rainbow-cyan)) 57%,
+      hsl(var(--rainbow-blue)) 71%,
+      hsl(var(--rainbow-purple)) 85%,
+      hsl(var(--rainbow-pink)) 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 100%
+    );
+
+    --shadow-glow: 0 10px 40px -10px hsl(var(--primary) / 0.4);
+    --shadow-card: 0 4px 20px -2px hsl(240 10% 15% / 0.1);
+  }
+
+  .dark {
+    --background: 240 10% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 8% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 8% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 95% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 8% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 45 95% 60%;
+    --accent-foreground: 240 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 25%;
+    --input: 240 8% 25%;
+    --ring: 280 85% 65%;
+
+    --shadow-glow: 0 10px 40px -10px hsl(var(--primary) / 0.6);
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Professional focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Professional scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Grid pattern for decorative backgrounds */
+  .bg-grid-pattern {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--border)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Professional animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  /* Professional transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Professional hover lift effect */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+}
