@@ -1,0 +1,62 @@
+{
+  "arch": {
+    "stack": ["React", "TypeScript", "Vite", "TailwindCSS", "shadcn/ui", "React Router"],
+    "patterns": ["SPA", "Component-based", "React Hooks", "Canvas API"],
+    "decisions": [
+      {
+        "what": "Implemented parasite SEO support features",
+        "why": "To leverage external platform authority for faster rankings and backlink acquisition",
+        "when": "2025-10-16"
+      },
+      {
+        "what": "Added comprehensive Schema.org markup (FAQPage, HowTo, BreadcrumbList, WebApplication)",
+        "why": "To qualify for Google rich results and featured snippets for 'spin wheel' keyword",
+        "when": "2025-10-16"
+      },
+      {
+        "what": "Created embeddable widget with automatic attribution",
+        "why": "To enable viral distribution and automatic backlink generation from embedded widgets",
+        "when": "2025-10-16"
+      }
+    ]
+  },
+  "features": {
+    "spin_wheel": {
+      "files": ["src/components/SpinWheel.tsx", "src/pages/Index.tsx"],
+      "deps": ["canvas-confetti", "sonner"],
+      "state": "active",
+      "notes": "Customizable colors, click-to-spin, localStorage persistence, 3D rotating center text"
+    },
+    "social_share": {
+      "files": ["src/components/SocialShare.tsx"],
+      "deps": ["lucide-react"],
+      "state": "active",
+      "notes": "Twitter, Facebook, LinkedIn, Reddit sharing with UTM tracking"
+    },
+    "referral_tracking": {
+      "files": ["src/components/ReferralTracker.tsx", "src/utils/utmLinks.ts"],
+      "deps": ["Google Analytics"],
+      "state": "active",
+      "notes": "Tracks parasite SEO platform referrals (Medium, YouTube, Reddit, Quora, etc.)"
+    },
+    "embed_widget": {
+      "files": ["src/pages/Embed.tsx", "src/components/PoweredByBadge.tsx"],
+      "deps": [],
+      "state": "active",
+      "notes": "Embeddable version at /embed with auto-attribution for backlinks"
+    },
+    "seo_optimization": {
+      "files": ["index.html", "public/sitemap.xml", "public/robots.txt"],
+      "deps": [],
+      "state": "active",
+      "notes": "Full SEO: sitemap, robots.txt, schema markup, OG tags, Twitter cards, GA4"
+    }
+  },
+  "debt": [],
+  "env": {
+    "GA_TRACKING_ID": "G-XKY49ZCLRS - Google Analytics 4",
+    "DOMAIN": "https://hihoney.site",
+    "EMAIL": "hihoney1146@gmail.com"
+  }
+}
+

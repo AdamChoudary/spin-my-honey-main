@@ -12,6 +12,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
+import Embed from "./pages/Embed";
+import { ReferralTracker } from "./components/ReferralTracker";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ReferralTracker />
       <BrowserRouter>
         <Routes>
           <Route element={<LayoutWrapper />}>
@@ -31,6 +34,7 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
           </Route>
+          <Route path="/embed" element={<Embed />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

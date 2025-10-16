@@ -11,6 +11,8 @@ import {
   Home,
 } from "lucide-react";
 import { Helmet } from "react-helmet";
+import { SocialShare } from "@/components/SocialShare";
+import { EmbedCodeGenerator } from "@/components/PoweredByBadge";
 
 const Index = () => {
   return (
@@ -37,6 +39,24 @@ const Index = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://hihoney.site/" />
+        <meta property="og:image" content="https://hihoney.site/logo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Hi Honey Spin Wheel - Free Random Picker Tool"
+        />
+        <meta property="og:site_name" content="Hi Honey" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hi Honey - Free Spin Wheel Tool" />
+        <meta
+          name="twitter:description"
+          content="Make random decisions fun with our interactive spin wheel. Perfect for teachers, teams, and anyone who needs to pick randomly."
+        />
+        <meta name="twitter:image" content="https://hihoney.site/logo.png" />
+        <meta name="twitter:site" content="@HiHoney" />
+        <meta name="twitter:creator" content="@HiHoney" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -202,11 +222,16 @@ const Index = () => {
               Free Online Spin Wheel - The Ultimate Random Name Picker &
               Decision Maker Tool
             </p>
-            <p className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
               Spin the wheel for instant random decisions. Perfect for
               classrooms, giveaways, games, and team choices. 100% free,
               customizable, and fun!
             </p>
+
+            {/* Share Button */}
+            <div className="flex justify-center mb-6">
+              <SocialShare />
+            </div>
           </div>
 
           <SpinWheel />
@@ -535,6 +560,14 @@ const Index = () => {
                 choices. The possibilities with our{" "}
                 <strong>wheel randomizer</strong> are endless.
               </p>
+            </div>
+
+            {/* Embed Widget Section */}
+            <div className="mt-12">
+              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">
+                Embed Our Spin Wheel on Your Website
+              </h3>
+              <EmbedCodeGenerator />
             </div>
           </div>
         </section>
