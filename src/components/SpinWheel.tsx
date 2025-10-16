@@ -33,14 +33,14 @@ interface WheelEntry {
 }
 
 const defaultColors = [
-  "hsl(0, 85%, 60%)", // Red
-  "hsl(25, 95%, 55%)", // Orange
-  "hsl(45, 95%, 55%)", // Yellow
-  "hsl(140, 70%, 50%)", // Green
-  "hsl(190, 95%, 50%)", // Cyan
-  "hsl(220, 90%, 60%)", // Blue
-  "hsl(280, 85%, 60%)", // Purple
-  "hsl(330, 85%, 65%)", // Pink
+  "#e74c3c", // Red
+  "#e67e22", // Orange
+  "#f39c12", // Yellow
+  "#2ecc71", // Green
+  "#1abc9c", // Cyan
+  "#3498db", // Blue
+  "#9b59b6", // Purple
+  "#e91e63", // Pink
 ];
 
 // Enhanced realistic sound effects with improved audio synthesis
@@ -373,6 +373,13 @@ export const SpinWheel = () => {
     setEntries(
       entries.map((entry) => (entry.id === id ? { ...entry, text } : entry))
     );
+  };
+
+  const updateEntryColor = (id: string, color: string) => {
+    setEntries(
+      entries.map((entry) => (entry.id === id ? { ...entry, color } : entry))
+    );
+    playSound("click");
   };
 
   const toggleEntry = (id: string) => {
@@ -746,11 +753,24 @@ export const SpinWheel = () => {
                     )}
                   </Button>
 
-                  {/* Color Indicator */}
-                  <div
-                    className="w-5 h-5 rounded-md flex-shrink-0 border-2 border-white dark:border-border shadow-sm ring-1 ring-black/10 transition-transform group-hover:scale-110"
-                    style={{ backgroundColor: entry.color }}
-                  />
+                  {/* Color Picker */}
+                  <div className="relative w-5 h-5 flex-shrink-0">
+                    <div
+                      className="w-5 h-5 rounded-full border-2 border-white dark:border-border shadow-sm ring-1 ring-black/10 transition-transform group-hover:scale-110 cursor-pointer overflow-hidden"
+                      style={{ backgroundColor: entry.color }}
+                    >
+                      <input
+                        type="color"
+                        value={entry.color}
+                        onChange={(e) =>
+                          updateEntryColor(entry.id, e.target.value)
+                        }
+                        className="w-full h-full opacity-0 cursor-pointer"
+                        title="Change color"
+                        disabled={!entry.active}
+                      />
+                    </div>
+                  </div>
 
                   {/* Entry Text Input */}
                   <Input
