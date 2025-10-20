@@ -9,9 +9,13 @@ import {
   Briefcase,
   PartyPopper,
   Home,
+  BookOpen,
+  Mail,
+  Info,
 } from "lucide-react";
 import { Helmet } from "react-helmet";
 import { SocialShare } from "@/components/SocialShare";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -559,6 +563,110 @@ const Index = () => {
                 choices. The possibilities with our{" "}
                 <strong>wheel randomizer</strong> are endless.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Internal Links Section - Critical for SEO Crawling */}
+        <section className="w-full px-4 lg:px-6 py-16 bg-gradient-to-b from-muted/10 to-background">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Explore More
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Learn more about Hi Honey and how we make decision-making fun
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                  <Info className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                  About Hi Honey
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Discover our story, mission, and commitment to making choices
+                  enjoyable. Learn how we're revolutionizing decision-making one
+                  spin at a time.
+                </p>
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                >
+                  Learn More
+                  <span className="text-lg">→</span>
+                </Link>
+              </Card>
+
+              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                  Complete Spin Wheel Guide
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Master the art of using spin wheels for decision-making,
+                  classroom activities, business applications, and more. Read
+                  our comprehensive guide.
+                </p>
+                <Link
+                  to="/blog"
+                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                >
+                  Read Guide
+                  <span className="text-lg">→</span>
+                </Link>
+              </Card>
+
+              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                  <Mail className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                  Contact Our Team
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Have questions, feedback, or suggestions? We'd love to hear
+                  from you. Get in touch with our friendly support team today.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                >
+                  Contact Us
+                  <span className="text-lg">→</span>
+                </Link>
+              </Card>
+            </div>
+
+            {/* Additional Links for SEO */}
+            <div className="mt-12 pt-8 border-t border-border/50">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
+                <Link
+                  to="/privacy"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+                <span className="text-muted-foreground">•</span>
+                <Link
+                  to="/terms"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Terms & Conditions
+                </Link>
+                <span className="text-muted-foreground">•</span>
+                <Link
+                  to="/disclaimer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Disclaimer
+                </Link>
+              </div>
             </div>
           </div>
         </section>

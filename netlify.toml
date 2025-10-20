@@ -3,26 +3,7 @@
   publish = "dist"
   command = "npm run build"
 
-# Force HTTPS
-[[redirects]]
-  from = "http://hihoney.site/*"
-  to = "https://hihoney.site/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.hihoney.site/*"
-  to = "https://hihoney.site/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.hihoney.site/*"
-  to = "https://hihoney.site/:splat"
-  status = 301
-  force = true
-
-# SPA fallback
+# SPA fallback - MUST BE LAST!
 [[redirects]]
   from = "/*"
   to = "/index.html"
