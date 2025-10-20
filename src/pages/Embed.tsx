@@ -43,17 +43,18 @@ const Embed = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background p-4 flex flex-col items-center justify-center">
-      {/* Compact version for embedding */}
-      <div className="w-full max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-[1fr_350px] gap-4 items-start">
-          <div className="flex flex-col items-center justify-center">
-            <SpinWheel />
+        {/* Compact version for embedding */}
+        <div className="w-full max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_350px] gap-4 items-start">
+            <div className="flex flex-col items-center justify-center">
+              <SpinWheel />
+            </div>
           </div>
-        </div>
 
-        {/* Attribution Badge */}
-        <div className="mt-4 text-center">
-          <PoweredByBadge variant="gradient" />
+          {/* Attribution Badge */}
+          <div className="mt-4 text-center">
+            <PoweredByBadge variant="gradient" />
+          </div>
         </div>
       </div>
     </>
@@ -61,4 +62,3 @@ const Embed = () => {
 };
 
 export default Embed;
-
