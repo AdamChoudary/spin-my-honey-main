@@ -303,12 +303,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
           {/* Bottom Bar */}
           <div className="border-t border-border/50 py-6">
-            <div className="flex items-center justify-center">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>© {new Date().getFullYear()} Hi Honey</span>
-                <span>•</span>
-                <span>All rights reserved</span>
-              </div>
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Hi Honey. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
