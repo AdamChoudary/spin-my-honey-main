@@ -6,23 +6,6 @@
       "destination": "/index.html"
     }
   ],
-  "redirects": [
-    {
-      "source": "http://hihoney.site/:path*",
-      "destination": "https://hihoney.site/:path*",
-      "permanent": true
-    },
-    {
-      "source": "http://www.hihoney.site/:path*",
-      "destination": "https://hihoney.site/:path*",
-      "permanent": true
-    },
-    {
-      "source": "https://www.hihoney.site/:path*",
-      "destination": "https://hihoney.site/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
