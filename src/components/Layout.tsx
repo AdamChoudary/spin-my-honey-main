@@ -303,19 +303,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
           {/* Bottom Bar */}
           <div className="border-t border-border/50 py-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center justify-center">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span>© {new Date().getFullYear()} Hi Honey</span>
-                <span className="hidden sm:inline">•</span>
-                <span className="hidden sm:inline">All rights reserved</span>
-              </div>
-
-              <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  Made with{" "}
-                  <span className="text-red-500 animate-pulse">♥</span> for
-                  Decision Makers
-                </span>
+                <span>•</span>
+                <span>All rights reserved</span>
               </div>
             </div>
           </div>

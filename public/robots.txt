@@ -1,16 +1,31 @@
+# Hi Honey - Spin Wheel Tool Robots.txt
+# Updated: 2025-10-20
+
+# Google Bot
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+# Bing Bot
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
+# Twitter Bot
 User-agent: Twitterbot
 Allow: /
 
+# Facebook Bot
 User-agent: facebookexternalhit
 Allow: /
 
+# All Other Bots
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
+# Sitemap Location (HTTPS)
 Sitemap: https://hihoney.site/sitemap.xml
+
+# Host Preference (HTTPS only)
+Host: https://hihoney.site

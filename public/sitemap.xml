@@ -6,7 +6,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://hihoney.site/</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,21 +18,21 @@
   <!-- Main Feature Pages - High Priority -->
   <url>
     <loc>https://hihoney.site/about</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://hihoney.site/blog</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://hihoney.site/contact</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -40,21 +40,21 @@
   <!-- Legal Pages - Lower Priority -->
   <url>
     <loc>https://hihoney.site/privacy</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
     <loc>https://hihoney.site/terms</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
     <loc>https://hihoney.site/disclaimer</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

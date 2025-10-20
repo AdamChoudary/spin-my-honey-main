@@ -1,0 +1,8 @@
+# Force HTTPS redirect (works with Netlify and Cloudflare Pages)
+http://hihoney.site/* https://hihoney.site/:splat 301!
+http://www.hihoney.site/* https://hihoney.site/:splat 301!
+https://www.hihoney.site/* https://hihoney.site/:splat 301!
+
+# Ensure all routes go to index.html for SPA
+/*    /index.html   200
+

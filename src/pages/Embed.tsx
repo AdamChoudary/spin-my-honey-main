@@ -1,6 +1,7 @@
 import { SpinWheel } from "@/components/SpinWheel";
 import { PoweredByBadge } from "@/components/PoweredByBadge";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const Embed = () => {
   useEffect(() => {
@@ -31,7 +32,17 @@ const Embed = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-4 flex flex-col items-center justify-center">
+    <>
+      <Helmet>
+        <title>Embed - Hi Honey Spin Wheel</title>
+        <meta
+          name="description"
+          content="Embed Hi Honey spin wheel on your website for random selections and decision making."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
+      <div className="min-h-screen bg-background p-4 flex flex-col items-center justify-center">
       {/* Compact version for embedding */}
       <div className="w-full max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_350px] gap-4 items-start">
@@ -45,7 +56,7 @@ const Embed = () => {
           <PoweredByBadge variant="gradient" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
