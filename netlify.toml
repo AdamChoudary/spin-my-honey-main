@@ -2,6 +2,9 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  
+[build.environment]
+  NODE_VERSION = "18"
 
 # SPA fallback - MUST BE LAST!
 [[redirects]]
