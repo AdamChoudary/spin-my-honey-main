@@ -524,39 +524,39 @@ export const SpinWheel = () => {
   return (
     <>
       {/* Wheel Section - Centered */}
-      <div className="flex flex-col items-center justify-center gap-4 w-full px-4">
+      <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:px-6 lg:px-8">
         {/* Wheel Card */}
-        <div className="w-full max-w-md mx-auto relative">
+        <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto relative">
           <canvas
             ref={canvasRef}
             width={350}
             height={350}
             onClick={spinWheel}
-            className={`w-full h-auto relative transition-transform duration-200 ${
+            className={`w-full h-auto relative transition-transform duration-200 touch-manipulation ${
               isSpinning || activeEntries.length < 2
                 ? "cursor-not-allowed opacity-70"
-                : "cursor-pointer hover:scale-105"
+                : "cursor-pointer hover:scale-105 active:scale-95"
             }`}
           />
         </div>
 
         {/* Spin Button */}
-        <div className="w-full max-w-md mx-auto space-y-3">
+        <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto space-y-2 sm:space-y-3">
           <Button
             onClick={spinWheel}
             disabled={isSpinning || activeEntries.length < 2}
             size="lg"
-            className="text-lg font-bold px-8 py-5 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group"
+            className="text-base sm:text-lg font-bold px-6 sm:px-8 py-4 sm:py-5 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group touch-manipulation"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             {isSpinning ? (
               <>
-                <div className="animate-spin mr-2.5 h-5 w-5 border-3 border-white border-t-transparent rounded-full relative z-10" />
+                <div className="animate-spin mr-2 sm:mr-2.5 h-4 w-4 sm:h-5 sm:w-5 border-3 border-white border-t-transparent rounded-full relative z-10" />
                 <span className="relative z-10">Spinning...</span>
               </>
             ) : (
               <>
-                <Play className="mr-2.5 h-5 w-5 fill-current relative z-10" />
+                <Play className="mr-2 sm:mr-2.5 h-4 w-4 sm:h-5 sm:w-5 fill-current relative z-10" />
                 <span className="relative z-10">Spin the Wheel!</span>
               </>
             )}
@@ -575,7 +575,7 @@ export const SpinWheel = () => {
         {/* Winner Display */}
         {winner && (
           <Card
-            className="p-5 w-full max-w-md mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
+            className="p-4 sm:p-5 w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
             style={{
               backgroundColor: `${winnerColor}10`,
               borderColor: winnerColor,
@@ -583,22 +583,22 @@ export const SpinWheel = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
             <div className="relative z-10">
-              <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
                 <div
-                  className="w-3 h-3 rounded-full animate-pulse shadow-lg"
+                  className="w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse shadow-lg"
                   style={{
                     backgroundColor: winnerColor,
                     boxShadow: `0 0 10px ${winnerColor}`,
                   }}
                 />
                 <h3
-                  className="text-lg md:text-xl font-bold text-center tracking-wide"
+                  className="text-base sm:text-lg md:text-xl font-bold text-center tracking-wide"
                   style={{ color: winnerColor }}
                 >
                   🎉 WINNER 🎉
                 </h3>
                 <div
-                  className="w-3 h-3 rounded-full animate-pulse shadow-lg"
+                  className="w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse shadow-lg"
                   style={{
                     backgroundColor: winnerColor,
                     boxShadow: `0 0 10px ${winnerColor}`,
@@ -606,7 +606,7 @@ export const SpinWheel = () => {
                 />
               </div>
               <p
-                className="text-2xl md:text-3xl font-extrabold text-center"
+                className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center break-words"
                 style={{ color: winnerColor }}
               >
                 {winner}
@@ -644,7 +644,7 @@ export const SpinWheel = () => {
 
           {/* Add New Entry */}
           <div className="mb-4 relative z-10">
-            <label className="text-[11px] font-bold text-foreground/80 mb-2 block flex items-center gap-1.5 uppercase tracking-wide">
+            <label className="text-[11px] font-bold text-foreground/80 mb-2 flex items-center gap-1.5 uppercase tracking-wide">
               <div className="w-1 h-1 rounded-full bg-primary" />
               Add New Entry
             </label>
@@ -669,7 +669,7 @@ export const SpinWheel = () => {
 
           {/* Action Buttons */}
           <div className="mb-4 relative z-10">
-            <label className="text-[11px] font-bold text-foreground/80 mb-2 block uppercase tracking-wide flex items-center gap-1.5">
+            <label className="text-[11px] font-bold text-foreground/80 mb-2 flex items-center gap-1.5 uppercase tracking-wide">
               <div className="w-1 h-1 rounded-full bg-primary" />
               Quick Actions
             </label>
@@ -708,7 +708,7 @@ export const SpinWheel = () => {
 
           {/* Entries List */}
           <div className="relative z-10 flex-1 flex flex-col min-h-0">
-            <label className="text-[11px] font-bold text-foreground/80 mb-2 block flex items-center justify-between uppercase tracking-wide">
+            <label className="text-[11px] font-bold text-foreground/80 mb-2 flex items-center justify-between uppercase tracking-wide">
               <span className="flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-primary" />
                 Entries List

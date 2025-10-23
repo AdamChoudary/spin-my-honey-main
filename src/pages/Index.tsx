@@ -200,12 +200,12 @@ const Index = () => {
       <article>
         <section
           id="spin-wheel"
-          className="w-full py-8 bg-gradient-to-b from-background to-muted/20 relative"
+          className="w-full py-6 sm:py-8 md:py-12 bg-gradient-to-b from-background to-muted/20 relative"
           itemScope
           itemType="https://schema.org/WebPageElement"
         >
-          <div className="max-w-7xl mx-auto text-center mb-10 px-4 lg:px-6">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
+          <div className="max-w-7xl mx-auto text-center mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 tracking-tight">
               <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                 Spin Wh
               </span>
@@ -221,18 +221,18 @@ const Index = () => {
                 Fun!
               </span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto leading-relaxed px-2">
               Free Online Spin Wheel - The Ultimate Random Name Picker &
               Decision Maker Tool
             </p>
-            <p className="text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2">
               Spin the wheel for instant random decisions. Perfect for
               classrooms, giveaways, games, and team choices. 100% free,
               customizable, and fun!
             </p>
 
             {/* Share Button */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4 sm:mb-6">
               <SocialShare />
             </div>
           </div>
@@ -242,63 +242,63 @@ const Index = () => {
 
         <section
           id="spin-wheel-features"
-          className="w-full px-4 lg:px-6 py-16 md:py-20 bg-muted/30"
+          className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-muted/30"
           itemScope
           itemType="https://schema.org/ItemList"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight px-2"
                 itemProp="name"
               >
                 Why Use Our Spin Wheel?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
                 Discover the features that make our spin wheel the perfect
                 choice for any decision-making scenario
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Sparkles className="h-8 w-8 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Completely Free</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Completely Free</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   No sign-up required. Use our spin wheel tool absolutely free,
                   anytime, anywhere.
                 </p>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Users className="h-8 w-8 text-white" />
+              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Perfect for Groups</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Perfect for Groups</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Ideal for classrooms, team meetings, parties, and family game
                   nights.
                 </p>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Shuffle className="h-8 w-8 text-white" />
+              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Shuffle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Truly Random</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Truly Random</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Our algorithm ensures fair and unbiased random selection every
                   time.
                 </p>
               </Card>
 
-              <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Zap className="h-8 w-8 text-white" />
+              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Zap className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Easy to Use</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Easy to Use</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Add your options, click spin, and get instant results with fun
                   animations.
                 </p>
@@ -309,34 +309,34 @@ const Index = () => {
 
         <section
           id="how-to-use-spin-wheel"
-          className="w-full px-4 lg:px-6 py-16 md:py-20"
+          className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
           itemScope
           itemType="https://schema.org/HowTo"
         >
           <div className="max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 shadow-2xl backdrop-blur-sm">
-              <div className="text-center mb-12">
+            <Card className="p-6 sm:p-8 md:p-12 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 shadow-2xl backdrop-blur-sm">
+              <div className="text-center mb-8 sm:mb-10 md:mb-12">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight px-2"
                   itemProp="name"
                 >
                   How to Use the Spin Wheel
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base sm:text-lg text-muted-foreground px-2">
                   Get started in just a few simple steps
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary-foreground">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex gap-3 sm:gap-4 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-primary-foreground">
                         1
                       </span>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Add Your Entries</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Add Your Entries</h3>
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                         Add your entries in the list on the right. You can add
                         as many options as you want.
                       </p>

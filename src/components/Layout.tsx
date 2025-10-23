@@ -19,6 +19,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { OptimizedImage } from "./OptimizedImage";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -37,20 +38,26 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <header className="border-b bg-card/95 backdrop-blur-md sticky top-0 z-50">
-        <nav className="container mx-auto ">
-          <div className="flex items-center justify-between h-16 ">
+      <header className="border-b bg-card/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center group relative">
+            <Link
+              to="/"
+              className="flex items-center group relative flex-shrink-0"
+            >
               <div className="relative">
-                <img
+                <OptimizedImage
                   src={logo}
-                  alt="Hi Honey Logo"
-                  className="h-12 px-2 transform group-hover:scale-110 transition-transform duration-300"
+                  alt="Hi Honey Logo - Spin Wheel Decision Maker"
+                  width={48}
+                  height={48}
+                  className="h-10 sm:h-12 md:h-14 w-auto px-1 sm:px-2 transform group-hover:scale-110 transition-transform duration-300"
+                  loading="eager"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
+                <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                     Hi
                   </span>
@@ -69,7 +76,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1 -mr-20">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 const active = isActive(link.to);
@@ -78,19 +85,22 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     key={link.to}
                     to={link.to}
                     className={`
-                      relative px-3 lg:px-4 py-2.5 rounded-lg font-medium text-sm lg:text-base
+                      relative px-2 xl:px-3 py-2 rounded-lg font-medium text-sm xl:text-base
                       transition-all duration-300 ease-out
-                      flex items-center gap-2
+                      flex items-center gap-1.5 xl:gap-2
                       ${
                         active
                           ? "text-primary bg-primary/10 shadow-sm"
                           : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                       }
-                      group
+                      group whitespace-nowrap
                     `}
                   >
-                    <Icon className="h-4 w-4 lg:h-5 lg:w-5 transition-transform group-hover:scale-110" />
-                    <span>{link.label}</span>
+                    <Icon className="h-4 w-4 xl:h-5 xl:w-5 transition-transform group-hover:scale-110 flex-shrink-0" />
+                    <span className="hidden xl:inline">{link.label}</span>
+                    <span className="xl:hidden">
+                      {link.label.substring(0, 1)}
+                    </span>
                     {active && (
                       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full" />
                     )}
@@ -101,20 +111,30 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
             {/* Mobile Menu Button */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild className="lg:hidden">
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="relative h-10 w-10"
+                  className="relative h-10 w-10 hover:bg-primary/10"
                 >
-                  <Menu className="h-6 w-6 transition-transform" />
+                  <Menu className="h-5 w-5 sm:h-6 sm:w-6 transition-transform" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+              <SheetContent
+                side="right"
+                className="w-[85vw] max-w-[320px] sm:w-[320px]"
+              >
                 <SheetHeader>
                   <SheetTitle className="flex items-center gap-2">
-                    <img src={logo} alt="Hi Honey" className="h-8 w-8" />
+                    <OptimizedImage
+                      src={logo}
+                      alt="Hi Honey Logo"
+                      width={32}
+                      height={32}
+                      className="h-8 w-8"
+                      loading="eager"
+                    />
                     <span className="font-bold">
                       <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                         Hi
@@ -180,20 +200,22 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <footer className="relative border-t bg-card/95 backdrop-blur-md mt-auto">
         {/* Decorative line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
 
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 py-12 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 md:py-16">
             {/* Brand Section */}
             <div className="sm:col-span-2 lg:col-span-1">
               <Link
                 to="/"
                 className="inline-flex items-center gap-2 mb-4 group"
               >
-                <img
+                <OptimizedImage
                   src={logo}
-                  alt="Hi Honey"
+                  alt="Hi Honey - Free Spin Wheel Tool"
+                  width={40}
+                  height={40}
                   className="h-10 w-10 transform group-hover:scale-110 transition-transform duration-300"
                 />
                 <span className="font-bold text-xl">
@@ -302,9 +324,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-border/50 py-6">
+          <div className="border-t border-border/50 py-4 sm:py-6">
             <div className="text-center">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Hi Honey. All rights reserved.
               </p>
             </div>
