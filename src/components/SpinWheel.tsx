@@ -348,16 +348,19 @@ export const SpinWheel = () => {
         ctx.fill();
       }
 
-      // Draw text with background for better visibility
+      // Draw text
       ctx.save();
       ctx.rotate(startAngle + sliceAngle / 2);
       ctx.textAlign = "center";
-
-      // Add text background
-      const textWidth = ctx.measureText(entry.text).width;
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.fillRect(radius - 50, -10, textWidth + 20, 20);
-
+      
+      // Add text shadow for better visibility (especially over images)
+      if (img) {
+        ctx.shadowColor = "rgba(0, 0, 0, 0.8)";
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+      }
+      
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 13px Inter, sans-serif";
       ctx.fillText(entry.text, radius - 40, 4);
