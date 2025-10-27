@@ -20,6 +20,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { OptimizedImage } from "./OptimizedImage";
+import { SocialShare } from "./SocialShare";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -40,7 +41,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="min-h-screen flex flex-col bg-background">
       <header className="border-b bg-card/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-16 lg:h-17">
             {/* Logo */}
             <Link
               to="/"
@@ -52,12 +53,12 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   alt="Hi Honey Logo - Spin Wheel Decision Maker"
                   width={48}
                   height={48}
-                  className="h-10 sm:h-12 md:h-14 w-auto px-1 sm:px-2 transform group-hover:scale-110 transition-transform duration-300"
+                  className="h-9 sm:h-10 md:h-11 lg:h-12 w-auto px-1 sm:px-1.5 transform group-hover:scale-110 transition-transform duration-300"
                   loading="eager"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
+                <span className="text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                     Hi
                   </span>
@@ -76,7 +77,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3">
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 const active = isActive(link.to);
@@ -107,6 +108,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </Link>
                 );
               })}
+              <div className="ml-2">
+                <SocialShare />
+              </div>
             </div>
 
             {/* Mobile Menu Button */}

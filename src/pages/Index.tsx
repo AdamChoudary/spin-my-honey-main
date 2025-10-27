@@ -14,7 +14,6 @@ import {
   Info,
 } from "lucide-react";
 import { Helmet } from "react-helmet";
-import { SocialShare } from "@/components/SocialShare";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -200,12 +199,12 @@ const Index = () => {
       <article>
         <section
           id="spin-wheel"
-          className="w-full py-6 sm:py-8 md:py-12 bg-gradient-to-b from-background to-muted/20 relative"
+          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-b from-background to-muted/20 relative"
           itemScope
           itemType="https://schema.org/WebPageElement"
         >
-          <div className="max-w-7xl mx-auto text-center mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 tracking-tight">
+          <div className="max-w-7xl mx-auto text-center mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 tracking-tight">
               <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                 Spin Wh
               </span>
@@ -221,20 +220,15 @@ const Index = () => {
                 Fun!
               </span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto leading-relaxed px-2">
+            <p className="text-sm sm:text-base md:text-base lg:text-lg text-muted-foreground mb-2 sm:mb-3 max-w-3xl mx-auto leading-relaxed px-2">
               Free Online Spin Wheel - The Ultimate Random Name Picker &
               Decision Maker Tool
             </p>
-            <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2">
+            <p className="text-xs sm:text-sm md:text-sm lg:text-base text-muted-foreground mb-3 sm:mb-4 max-w-2xl mx-auto leading-relaxed px-2">
               Spin the wheel for instant random decisions. Perfect for
               classrooms, giveaways, games, and team choices. 100% free,
               customizable, and fun!
             </p>
-
-            {/* Share Button */}
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <SocialShare />
-            </div>
           </div>
 
           <SpinWheel />
@@ -242,63 +236,71 @@ const Index = () => {
 
         <section
           id="spin-wheel-features"
-          className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-muted/30"
+          className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-14 lg:py-16 bg-muted/30"
           itemScope
           itemType="https://schema.org/ItemList"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
               <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight px-2"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 tracking-tight px-2"
                 itemProp="name"
               >
                 Why Use Our Spin Wheel?
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
                 Discover the features that make our spin wheel the perfect
                 choice for any decision-making scenario
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                  <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+              <Card className="p-4 sm:p-5 md:p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                  <Sparkles className="h-6 w-6 sm:h-6.5 sm:w-6.5 md:h-7 md:w-7 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Completely Free</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg md:text-lg font-bold mb-2 sm:mb-3">
+                  Completely Free
+                </h3>
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                   No sign-up required. Use our spin wheel tool absolutely free,
                   anytime, anywhere.
                 </p>
               </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                  <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+              <Card className="p-4 sm:p-5 md:p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                  <Users className="h-6 w-6 sm:h-6.5 sm:w-6.5 md:h-7 md:w-7 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Perfect for Groups</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg md:text-lg font-bold mb-2 sm:mb-3">
+                  Perfect for Groups
+                </h3>
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                   Ideal for classrooms, team meetings, parties, and family game
                   nights.
                 </p>
               </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                  <Shuffle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+              <Card className="p-4 sm:p-5 md:p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                  <Shuffle className="h-6 w-6 sm:h-6.5 sm:w-6.5 md:h-7 md:w-7 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Truly Random</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg md:text-lg font-bold mb-2 sm:mb-3">
+                  Truly Random
+                </h3>
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                   Our algorithm ensures fair and unbiased random selection every
                   time.
                 </p>
               </Card>
 
-              <Card className="p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                  <Zap className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+              <Card className="p-4 sm:p-5 md:p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                  <Zap className="h-6 w-6 sm:h-6.5 sm:w-6.5 md:h-7 md:w-7 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Easy to Use</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <h3 className="text-base sm:text-lg md:text-lg font-bold mb-2 sm:mb-3">
+                  Easy to Use
+                </h3>
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                   Add your options, click spin, and get instant results with fun
                   animations.
                 </p>
@@ -309,80 +311,86 @@ const Index = () => {
 
         <section
           id="how-to-use-spin-wheel"
-          className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
+          className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-14 lg:py-16"
           itemScope
           itemType="https://schema.org/HowTo"
         >
           <div className="max-w-4xl mx-auto">
-            <Card className="p-6 sm:p-8 md:p-12 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 shadow-2xl backdrop-blur-sm">
-              <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <Card className="p-5 sm:p-6 md:p-8 lg:p-10 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 shadow-2xl backdrop-blur-sm">
+              <div className="text-center mb-6 sm:mb-8 md:mb-10">
                 <h2
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight px-2"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 tracking-tight px-2"
                   itemProp="name"
                 >
                   How to Use the Spin Wheel
                 </h2>
-                <p className="text-base sm:text-lg text-muted-foreground px-2">
+                <p className="text-sm sm:text-base md:text-base text-muted-foreground px-2">
                   Get started in just a few simple steps
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <div className="space-y-4 sm:space-y-6">
-                  <div className="flex gap-3 sm:gap-4 items-start">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                <div className="space-y-4 sm:space-y-5">
+                  <div className="flex gap-3 items-start">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
                       <span className="text-sm sm:text-base font-bold text-primary-foreground">
                         1
                       </span>
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Add Your Entries</h3>
-                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      <h3 className="text-sm sm:text-base md:text-base font-semibold mb-1 sm:mb-2">
+                        Add Your Entries
+                      </h3>
+                      <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                         Add your entries in the list on the right. You can add
                         as many options as you want.
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary-foreground">
+                  <div className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-primary-foreground">
                         2
                       </span>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Customize Colors</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="text-sm sm:text-base md:text-base font-semibold mb-1 sm:mb-2">
+                        Customize Colors
+                      </h3>
+                      <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                         Each entry gets a unique color automatically. Edit or
                         remove entries as needed.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-6">
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary-foreground">
+                <div className="space-y-4 sm:space-y-5">
+                  <div className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-primary-foreground">
                         3
                       </span>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Spin the Wheel</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="text-sm sm:text-base md:text-base font-semibold mb-1 sm:mb-2">
+                        Spin the Wheel
+                      </h3>
+                      <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                         Click the "Spin the Wheel!" button and watch the magic
                         happen.
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary-foreground">
+                  <div className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-sm sm:text-base font-bold text-primary-foreground">
                         4
                       </span>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">
+                      <h3 className="text-sm sm:text-base md:text-base font-semibold mb-1 sm:mb-2">
                         Celebrate the Winner
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                         The wheel will spin and randomly select a winner with
                         confetti celebration!
                       </p>
@@ -396,122 +404,130 @@ const Index = () => {
 
         <section
           id="spin-wheel-uses"
-          className="w-full px-4 lg:px-6 py-16 md:py-20 bg-gradient-to-b from-muted/30 to-background"
+          className="w-full px-4 lg:px-6 py-8 sm:py-12 md:py-14 lg:py-16 bg-gradient-to-b from-muted/30 to-background"
         >
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-5 tracking-tight">
                 Popular Uses for Our Spin Wheel
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
                 Discover how our spin wheel can transform decision-making across
                 different settings
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <GraduationCap className="w-7 h-7 text-white" />
+            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 md:gap-7">
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <GraduationCap className="w-6 h-6 sm:w-6.5 h-6.5 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Education</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold">
+                    Education
+                  </h3>
                 </div>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm md:text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                     Random student selection for questions
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                     Picking presentation orders
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                     Selecting group leaders
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                     Choosing classroom activities
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Briefcase className="w-7 h-7 text-white" />
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Briefcase className="w-6 h-6 sm:w-6.5 h-6.5 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Business</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold">
+                    Business
+                  </h3>
                 </div>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm md:text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full flex-shrink-0"></div>
                     Team meeting ice breakers
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full flex-shrink-0"></div>
                     Selecting meeting speakers
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full flex-shrink-0"></div>
                     Choosing lunch locations
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full flex-shrink-0"></div>
                     Giveaway winner selection
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <PartyPopper className="w-7 h-7 text-white" />
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <PartyPopper className="w-6 h-6 sm:w-6.5 h-6.5 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Entertainment</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold">
+                    Entertainment
+                  </h3>
                 </div>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm md:text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full flex-shrink-0"></div>
                     Party game decisions
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full flex-shrink-0"></div>
                     Movie night selections
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full flex-shrink-0"></div>
                     Restaurant choices
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full flex-shrink-0"></div>
                     Truth or dare spinner
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Home className="w-7 h-7 text-white" />
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-border/50 bg-white/80 dark:bg-background/80 backdrop-blur-sm">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Home className="w-6 h-6 sm:w-6.5 h-6.5 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Family</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold">
+                    Family
+                  </h3>
                 </div>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm md:text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
                     Chore assignment
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
                     Deciding family activities
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
                     Picking who goes first in games
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
                     Settling friendly disputes
                   </li>
                 </ul>
@@ -523,14 +539,14 @@ const Index = () => {
         {/* SEO Content Section - Hidden but crawlable */}
         <section
           id="spin-wheel-seo-content"
-          className="w-full px-4 lg:px-6 py-12 bg-muted/10"
+          className="w-full px-4 lg:px-6 py-8 sm:py-10 md:py-12 bg-muted/10"
         >
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-6">
                 Spin Wheel: The Ultimate Random Picker Tool
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
                 Our <strong>spin wheel</strong> (also known as a wheel spinner,
                 wheel of names, or random picker wheel) is a free online tool
                 designed to help you make random selections effortlessly.
@@ -540,10 +556,10 @@ const Index = () => {
                 our customizable wheel spinner has you covered.
               </p>
 
-              <h3 className="text-xl md:text-2xl font-bold mt-8 mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mt-6 sm:mt-7 md:mt-8 mb-3 sm:mb-4">
                 What Makes Our Spin Wheel Special?
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
                 Unlike other wheel spinner tools, our{" "}
                 <strong>online spin wheel</strong> offers unlimited
                 customization options. You can add unlimited entries, customize
@@ -552,10 +568,10 @@ const Index = () => {
                 and unbiased selection every time you spin the wheel.
               </p>
 
-              <h3 className="text-xl md:text-2xl font-bold mt-8 mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mt-6 sm:mt-7 md:mt-8 mb-3 sm:mb-4">
                 Perfect for Every Occasion
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
                 Teachers love using our <strong>classroom spinner</strong> for
                 random student selection. Event organizers use it as a{" "}
                 <strong>giveaway wheel</strong> to pick winners fairly. Teams
@@ -568,84 +584,84 @@ const Index = () => {
         </section>
 
         {/* Internal Links Section - Critical for SEO Crawling */}
-        <section className="w-full px-4 lg:px-6 py-16 bg-gradient-to-b from-muted/10 to-background">
+        <section className="w-full px-4 lg:px-6 py-10 sm:py-12 md:py-14 lg:py-16 bg-gradient-to-b from-muted/10 to-background">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 Explore More
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                 Learn more about Hi Honey and how we make decision-making fun
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <Info className="h-6 w-6 text-white" />
+            <div className="grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <Info className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3">
                   About Hi Honey
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                   Discover our story, mission, and commitment to making choices
                   enjoyable. Learn how we're revolutionizing decision-making one
                   spin at a time.
                 </p>
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-primary hover:underline font-semibold"
                 >
                   Learn More
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </Link>
               </Card>
 
-              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <BookOpen className="h-6 w-6 text-white" />
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3">
                   Complete Spin Wheel Guide
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                   Master the art of using spin wheels for decision-making,
                   classroom activities, business applications, and more. Read
                   our comprehensive guide.
                 </p>
                 <Link
                   to="/blog"
-                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-primary hover:underline font-semibold"
                 >
                   Read Guide
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </Link>
               </Card>
 
-              <Card className="p-6 md:p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <Mail className="h-6 w-6 text-white" />
+              <Card className="p-5 sm:p-6 md:p-7 hover:shadow-lg transition-shadow">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3">
                   Contact Our Team
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                   Have questions, feedback, or suggestions? We'd love to hear
                   from you. Get in touch with our friendly support team today.
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base text-primary hover:underline font-semibold"
                 >
                   Contact Us
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </Link>
               </Card>
             </div>
 
             {/* Additional Links for SEO */}
-            <div className="mt-12 pt-8 border-t border-border/50">
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
+            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-7 md:pt-8 border-t border-border/50">
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm">
                 <Link
                   to="/privacy"
                   className="text-muted-foreground hover:text-primary transition-colors"
