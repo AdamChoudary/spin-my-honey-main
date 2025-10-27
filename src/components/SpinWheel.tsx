@@ -601,324 +601,320 @@ export const SpinWheel = () => {
   const activeEntries = entries.filter((entry) => entry.active);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 xl:gap-8 items-start">
-        {/* Wheel Section - Left/Center */}
-        <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 w-full lg:flex-1">
-          {/* Wheel Card */}
-          <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto relative">
-            <canvas
-              ref={canvasRef}
-              width={350}
-              height={350}
-              onClick={spinWheel}
-              className={`w-full h-auto relative transition-transform duration-200 touch-manipulation ${
-                isSpinning || activeEntries.length < 2
-                  ? "cursor-not-allowed opacity-70"
-                  : "cursor-pointer hover:scale-105 active:scale-95"
-              }`}
-            />
-          </div>
+    <>
+      {/* Wheel Section - Centered */}
+      <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 w-full px-4 sm:px-6 lg:px-8">
+        {/* Wheel Card */}
+        <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto relative">
+          <canvas
+            ref={canvasRef}
+            width={350}
+            height={350}
+            onClick={spinWheel}
+            className={`w-full h-auto relative transition-transform duration-200 touch-manipulation ${
+              isSpinning || activeEntries.length < 2
+                ? "cursor-not-allowed opacity-70"
+                : "cursor-pointer hover:scale-105 active:scale-95"
+            }`}
+          />
+        </div>
 
-          {/* Spin Button */}
-          <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto space-y-2">
-            <Button
-              onClick={spinWheel}
-              disabled={isSpinning || activeEntries.length < 2}
-              size="lg"
-              className="text-sm sm:text-base lg:text-lg font-bold px-4 sm:px-6 lg:px-8 py-3 sm:py-4 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group touch-manipulation"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              {isSpinning ? (
-                <>
-                  <div className="animate-spin mr-2 h-4 w-4 sm:h-5 sm:w-5 border-3 border-white border-t-transparent rounded-full relative z-10" />
-                  <span className="relative z-10">Spinning...</span>
-                </>
-              ) : (
-                <>
-                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 fill-current relative z-10" />
-                  <span className="relative z-10">Spin the Wheel!</span>
-                </>
-              )}
-            </Button>
-
-            {activeEntries.length < 2 && (
-              <div className="flex items-center justify-center gap-2 text-destructive">
-                <div className="w-1.5 h-1.5 rounded-full bg-destructive animate-pulse" />
-                <p className="text-xs font-medium">
-                  Add at least 2 active entries to spin
-                </p>
-              </div>
+        {/* Spin Button */}
+        <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto space-y-2">
+          <Button
+            onClick={spinWheel}
+            disabled={isSpinning || activeEntries.length < 2}
+            size="lg"
+            className="text-sm sm:text-base lg:text-lg font-bold px-4 sm:px-6 lg:px-8 py-3 sm:py-4 h-auto bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-primary-foreground w-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-primary-foreground/20 relative overflow-hidden group touch-manipulation"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            {isSpinning ? (
+              <>
+                <div className="animate-spin mr-2 h-4 w-4 sm:h-5 sm:w-5 border-3 border-white border-t-transparent rounded-full relative z-10" />
+                <span className="relative z-10">Spinning...</span>
+              </>
+            ) : (
+              <>
+                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 fill-current relative z-10" />
+                <span className="relative z-10">Spin the Wheel!</span>
+              </>
             )}
-          </div>
+          </Button>
 
-          {/* Winner Display */}
-          {winner && (
-            <Card
-              className="p-3 sm:p-4 lg:p-5 w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
-              style={{
-                backgroundColor: `${winnerColor}10`,
-                borderColor: winnerColor,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
-              <div className="relative z-10">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div
-                    className="w-2 h-2 rounded-full animate-pulse shadow-lg"
-                    style={{
-                      backgroundColor: winnerColor,
-                      boxShadow: `0 0 10px ${winnerColor}`,
-                    }}
-                  />
-                  <h3
-                    className="text-sm sm:text-base lg:text-lg font-bold text-center tracking-wide"
-                    style={{ color: winnerColor }}
-                  >
-                    🎉 WINNER 🎉
-                  </h3>
-                  <div
-                    className="w-2 h-2 rounded-full animate-pulse shadow-lg"
-                    style={{
-                      backgroundColor: winnerColor,
-                      boxShadow: `0 0 10px ${winnerColor}`,
-                    }}
-                  />
-                </div>
-                <p
-                  className="text-lg sm:text-xl lg:text-2xl font-extrabold text-center break-words"
-                  style={{ color: winnerColor }}
-                >
-                  {winner}
-                </p>
-              </div>
-            </Card>
+          {activeEntries.length < 2 && (
+            <div className="flex items-center justify-center gap-2 text-destructive">
+              <div className="w-1.5 h-1.5 rounded-full bg-destructive animate-pulse" />
+              <p className="text-xs font-medium">
+                Add at least 2 active entries to spin
+              </p>
+            </div>
           )}
         </div>
 
-        {/* Controls Section - Right Side */}
-        <div className="w-full lg:w-[340px] xl:w-[380px] lg:flex-shrink-0">
-          <Card className="p-4 lg:p-5 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full max-h-[600px] lg:max-h-[85vh] flex flex-col">
-            {/* Header */}
-            <div className="mb-3 lg:mb-4 relative z-10">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-5 lg:h-6 bg-primary rounded-sm shadow-sm" />
-                  <h2 className="text-base lg:text-lg font-bold text-foreground tracking-tight">
-                    Manage Entries
-                  </h2>
-                </div>
-                <Badge
-                  variant="secondary"
-                  className="text-xs font-bold px-2 py-0.5 lg:px-2.5 lg:py-1 bg-primary/15 text-primary border border-primary/30 shadow-sm"
+        {/* Winner Display */}
+        {winner && (
+          <Card
+            className="p-3 sm:p-4 lg:p-5 w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
+            style={{
+              backgroundColor: `${winnerColor}10`,
+              borderColor: winnerColor,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
+            <div className="relative z-10">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <div
+                  className="w-2 h-2 rounded-full animate-pulse shadow-lg"
+                  style={{
+                    backgroundColor: winnerColor,
+                    boxShadow: `0 0 10px ${winnerColor}`,
+                  }}
+                />
+                <h3
+                  className="text-sm sm:text-base lg:text-lg font-bold text-center tracking-wide"
+                  style={{ color: winnerColor }}
                 >
-                  {activeEntries.length} Active
-                </Badge>
+                  🎉 WINNER 🎉
+                </h3>
+                <div
+                  className="w-2 h-2 rounded-full animate-pulse shadow-lg"
+                  style={{
+                    backgroundColor: winnerColor,
+                    boxShadow: `0 0 10px ${winnerColor}`,
+                  }}
+                />
               </div>
-              <p className="text-[10px] lg:text-[11px] text-muted-foreground ml-3 leading-relaxed">
-                Add, organize, and control your wheel entries
+              <p
+                className="text-lg sm:text-xl lg:text-2xl font-extrabold text-center break-words"
+                style={{ color: winnerColor }}
+              >
+                {winner}
               </p>
             </div>
-
-            <Separator className="mb-3 lg:mb-4" />
-
-            {/* Add New Entry */}
-            <div className="mb-3 lg:mb-4 relative z-10">
-              <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center gap-1.5 uppercase tracking-wide">
-                <div className="w-1 h-1 rounded-full bg-primary" />
-                Add New Entry
-              </label>
-              <div className="flex gap-2">
-                <Input
-                  value={newEntry}
-                  onChange={(e) => setNewEntry(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && addEntry()}
-                  placeholder="Enter name..."
-                  className="flex-1 h-9 lg:h-10 text-xs lg:text-sm border-2 border-border focus:border-primary bg-background/80 backdrop-blur-sm transition-all shadow-sm focus:shadow-md focus:ring-2 focus:ring-primary/20"
-                />
-                <Button
-                  onClick={addEntry}
-                  size="sm"
-                  className="px-3 lg:px-4 h-9 lg:h-10 bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all font-semibold text-primary-foreground"
-                >
-                  <Plus className="h-3.5 w-3.5 lg:h-4 lg:w-4 mr-1" />
-                  <span className="text-xs lg:text-sm">Add</span>
-                </Button>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="mb-3 lg:mb-4 relative z-10">
-              <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center gap-1.5 uppercase tracking-wide">
-                <div className="w-1 h-1 rounded-full bg-primary" />
-                Quick Actions
-              </label>
-              <div className="grid grid-cols-3 gap-1.5 lg:gap-2">
-                <Button
-                  onClick={shuffleEntries}
-                  variant="outline"
-                  size="sm"
-                  className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-all border-2 shadow-sm hover:shadow-md"
-                >
-                  <Shuffle className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
-                  Shuffle
-                </Button>
-                <Button
-                  onClick={sortEntries}
-                  variant="outline"
-                  size="sm"
-                  className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-purple-50 hover:border-purple-500 hover:text-purple-600 transition-all border-2 shadow-sm hover:shadow-md"
-                >
-                  <ArrowUpDown className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
-                  Sort
-                </Button>
-                <Button
-                  onClick={resetEntries}
-                  variant="outline"
-                  size="sm"
-                  className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-all border-2 shadow-sm hover:shadow-md"
-                >
-                  <RotateCcw className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
-                  Reset
-                </Button>
-              </div>
-            </div>
-
-            <Separator className="mb-3 lg:mb-4" />
-
-            {/* Entries List */}
-            <div className="relative z-10 flex-1 flex flex-col min-h-0">
-              <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center justify-between uppercase tracking-wide">
-                <span className="flex items-center gap-1.5">
-                  <div className="w-1 h-1 rounded-full bg-primary" />
-                  Entries List
-                </span>
-                <span className="text-muted-foreground font-bold text-[9px] lg:text-[10px] bg-muted px-1.5 lg:px-2 py-0.5 rounded-full">
-                  {entries.length} Total
-                </span>
-              </label>
-              <div className="space-y-1.5 lg:space-y-2 overflow-y-auto pr-1 lg:pr-1.5 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-muted/30 hover:scrollbar-thumb-primary/50 flex-1">
-                {entries.map((entry, index) => (
-                  <div
-                    key={entry.id}
-                    className={`group flex items-center gap-1.5 lg:gap-2 p-2 lg:p-2.5 rounded-lg border-2 transition-all duration-200 ${
-                      entry.active
-                        ? "bg-white/50 dark:bg-background/80 backdrop-blur-sm border-border hover:border-primary hover:bg-white dark:hover:bg-background shadow-sm hover:shadow-md"
-                        : "bg-muted/30 border-muted opacity-60 hover:opacity-80"
-                    }`}
-                  >
-                    {/* Entry Number */}
-                    <div className="flex items-center justify-center min-w-[20px] lg:min-w-[24px] h-5 lg:h-6 rounded-md bg-primary/10 border border-primary/20 flex-shrink-0">
-                      <span className="text-[9px] lg:text-[10px] font-bold text-primary">
-                        {index + 1}
-                      </span>
-                    </div>
-
-                    {/* Toggle Active Button */}
-                    <Button
-                      onClick={() => toggleEntry(entry.id)}
-                      size="icon"
-                      variant="ghost"
-                      className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md ${
-                        entry.active
-                          ? "text-green-600 hover:text-white hover:bg-green-500 border border-green-300"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted border border-border"
-                      }`}
-                      title={entry.active ? "Deactivate" : "Activate"}
-                    >
-                      {entry.active ? (
-                        <Check className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                      ) : (
-                        <Minus className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                      )}
-                    </Button>
-
-                    {/* Color Picker */}
-                    <div className="relative w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0">
-                      <div
-                        className="w-4 h-4 lg:w-5 lg:h-5 rounded-full border-2 border-white dark:border-border shadow-sm ring-1 ring-black/10 transition-transform group-hover:scale-110 cursor-pointer overflow-hidden"
-                        style={{ backgroundColor: entry.color }}
-                      >
-                        <input
-                          type="color"
-                          value={entry.color}
-                          onChange={(e) =>
-                            updateEntryColor(entry.id, e.target.value)
-                          }
-                          className="w-full h-full opacity-0 cursor-pointer"
-                          title="Change color"
-                          disabled={!entry.active}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Image URL Button */}
-                    <Button
-                      onClick={() => {
-                        const url = prompt(
-                          "Enter image URL (or leave empty to remove):",
-                          entry.imageUrl || ""
-                        );
-                        if (url !== null) {
-                          updateEntryImage(entry.id, url);
-                        }
-                      }}
-                      size="icon"
-                      variant="ghost"
-                      className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md ${
-                        entry.imageUrl
-                          ? "text-blue-600 hover:text-white hover:bg-blue-500 border border-blue-300"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent"
-                      }`}
-                      title={entry.imageUrl ? "Change image" : "Add image"}
-                      disabled={!entry.active}
-                    >
-                      <ImageIcon className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                    </Button>
-
-                    {/* Entry Text Input */}
-                    <Input
-                      value={entry.text}
-                      onChange={(e) => updateEntry(entry.id, e.target.value)}
-                      className={`flex-1 border-0 bg-transparent focus-visible:ring-1 focus-visible:ring-primary/50 px-1.5 lg:px-2 py-1 h-auto text-xs lg:text-sm font-semibold ${
-                        entry.active
-                          ? "text-foreground"
-                          : "text-muted-foreground"
-                      }`}
-                      disabled={!entry.active}
-                      placeholder="Entry name"
-                    />
-
-                    {/* Remove Button */}
-                    <Button
-                      onClick={() => removeEntry(entry.id)}
-                      size="icon"
-                      variant="ghost"
-                      className="h-6 w-6 lg:h-7 lg:w-7 text-muted-foreground hover:text-white hover:bg-red-500 opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border border-transparent hover:border-red-400 rounded-md"
-                      title="Remove"
-                    >
-                      <Trash2 className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {entries.length === 0 && (
-              <div className="text-center py-6 lg:py-8 px-3 lg:px-4 border-2 border-dashed border-primary/30 rounded-lg bg-primary/5 backdrop-blur-sm relative z-10">
-                <div className="text-3xl lg:text-4xl mb-2 lg:mb-3 animate-bounce">
-                  🎯
-                </div>
-                <p className="text-xs lg:text-sm font-bold text-foreground mb-1 lg:mb-1.5">
-                  No Entries Yet
-                </p>
-                <p className="text-[10px] lg:text-[11px] text-muted-foreground leading-relaxed">
-                  Add some names above to get started
-                </p>
-              </div>
-            )}
           </Card>
-        </div>
+        )}
+      </div>
+
+      {/* Controls Section - Right Sidebar */}
+      <div className="w-full lg:w-[340px] xl:w-[380px] px-4 lg:px-0 mt-6 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:h-[90vh]">
+        <Card className="p-4 lg:p-5 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full h-full flex flex-col">
+          {/* Header */}
+          <div className="mb-3 lg:mb-4 relative z-10">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-5 lg:h-6 bg-primary rounded-sm shadow-sm" />
+                <h2 className="text-base lg:text-lg font-bold text-foreground tracking-tight">
+                  Manage Entries
+                </h2>
+              </div>
+              <Badge
+                variant="secondary"
+                className="text-xs font-bold px-2 py-0.5 lg:px-2.5 lg:py-1 bg-primary/15 text-primary border border-primary/30 shadow-sm"
+              >
+                {activeEntries.length} Active
+              </Badge>
+            </div>
+            <p className="text-[10px] lg:text-[11px] text-muted-foreground ml-3 leading-relaxed">
+              Add, organize, and control your wheel entries
+            </p>
+          </div>
+
+          <Separator className="mb-3 lg:mb-4" />
+
+          {/* Add New Entry */}
+          <div className="mb-3 lg:mb-4 relative z-10">
+            <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center gap-1.5 uppercase tracking-wide">
+              <div className="w-1 h-1 rounded-full bg-primary" />
+              Add New Entry
+            </label>
+            <div className="flex gap-2">
+              <Input
+                value={newEntry}
+                onChange={(e) => setNewEntry(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && addEntry()}
+                placeholder="Enter name..."
+                className="flex-1 h-9 lg:h-10 text-xs lg:text-sm border-2 border-border focus:border-primary bg-background/80 backdrop-blur-sm transition-all shadow-sm focus:shadow-md focus:ring-2 focus:ring-primary/20"
+              />
+              <Button
+                onClick={addEntry}
+                size="sm"
+                className="px-3 lg:px-4 h-9 lg:h-10 bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all font-semibold text-primary-foreground"
+              >
+                <Plus className="h-3.5 w-3.5 lg:h-4 lg:w-4 mr-1" />
+                <span className="text-xs lg:text-sm">Add</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="mb-3 lg:mb-4 relative z-10">
+            <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center gap-1.5 uppercase tracking-wide">
+              <div className="w-1 h-1 rounded-full bg-primary" />
+              Quick Actions
+            </label>
+            <div className="grid grid-cols-3 gap-1.5 lg:gap-2">
+              <Button
+                onClick={shuffleEntries}
+                variant="outline"
+                size="sm"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-all border-2 shadow-sm hover:shadow-md"
+              >
+                <Shuffle className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
+                Shuffle
+              </Button>
+              <Button
+                onClick={sortEntries}
+                variant="outline"
+                size="sm"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-purple-50 hover:border-purple-500 hover:text-purple-600 transition-all border-2 shadow-sm hover:shadow-md"
+              >
+                <ArrowUpDown className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
+                Sort
+              </Button>
+              <Button
+                onClick={resetEntries}
+                variant="outline"
+                size="sm"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-all border-2 shadow-sm hover:shadow-md"
+              >
+                <RotateCcw className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
+                Reset
+              </Button>
+            </div>
+          </div>
+
+          <Separator className="mb-3 lg:mb-4" />
+
+          {/* Entries List */}
+          <div className="relative z-10 flex-1 flex flex-col min-h-0">
+            <label className="text-[10px] lg:text-[11px] font-bold text-foreground/80 mb-1.5 lg:mb-2 flex items-center justify-between uppercase tracking-wide">
+              <span className="flex items-center gap-1.5">
+                <div className="w-1 h-1 rounded-full bg-primary" />
+                Entries List
+              </span>
+              <span className="text-muted-foreground font-bold text-[9px] lg:text-[10px] bg-muted px-1.5 lg:px-2 py-0.5 rounded-full">
+                {entries.length} Total
+              </span>
+            </label>
+            <div className="space-y-1.5 lg:space-y-2 overflow-y-auto pr-1 lg:pr-1.5 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-muted/30 hover:scrollbar-thumb-primary/50 flex-1">
+              {entries.map((entry, index) => (
+                <div
+                  key={entry.id}
+                  className={`group flex items-center gap-1.5 lg:gap-2 p-2 lg:p-2.5 rounded-lg border-2 transition-all duration-200 ${
+                    entry.active
+                      ? "bg-white/50 dark:bg-background/80 backdrop-blur-sm border-border hover:border-primary hover:bg-white dark:hover:bg-background shadow-sm hover:shadow-md"
+                      : "bg-muted/30 border-muted opacity-60 hover:opacity-80"
+                  }`}
+                >
+                  {/* Entry Number */}
+                  <div className="flex items-center justify-center min-w-[20px] lg:min-w-[24px] h-5 lg:h-6 rounded-md bg-primary/10 border border-primary/20 flex-shrink-0">
+                    <span className="text-[9px] lg:text-[10px] font-bold text-primary">
+                      {index + 1}
+                    </span>
+                  </div>
+
+                  {/* Toggle Active Button */}
+                  <Button
+                    onClick={() => toggleEntry(entry.id)}
+                    size="icon"
+                    variant="ghost"
+                    className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md ${
+                      entry.active
+                        ? "text-green-600 hover:text-white hover:bg-green-500 border border-green-300"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted border border-border"
+                    }`}
+                    title={entry.active ? "Deactivate" : "Activate"}
+                  >
+                    {entry.active ? (
+                      <Check className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                    ) : (
+                      <Minus className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                    )}
+                  </Button>
+
+                  {/* Color Picker */}
+                  <div className="relative w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0">
+                    <div
+                      className="w-4 h-4 lg:w-5 lg:h-5 rounded-full border-2 border-white dark:border-border shadow-sm ring-1 ring-black/10 transition-transform group-hover:scale-110 cursor-pointer overflow-hidden"
+                      style={{ backgroundColor: entry.color }}
+                    >
+                      <input
+                        type="color"
+                        value={entry.color}
+                        onChange={(e) =>
+                          updateEntryColor(entry.id, e.target.value)
+                        }
+                        className="w-full h-full opacity-0 cursor-pointer"
+                        title="Change color"
+                        disabled={!entry.active}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Image URL Button */}
+                  <Button
+                    onClick={() => {
+                      const url = prompt(
+                        "Enter image URL (or leave empty to remove):",
+                        entry.imageUrl || ""
+                      );
+                      if (url !== null) {
+                        updateEntryImage(entry.id, url);
+                      }
+                    }}
+                    size="icon"
+                    variant="ghost"
+                    className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md ${
+                      entry.imageUrl
+                        ? "text-blue-600 hover:text-white hover:bg-blue-500 border border-blue-300"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent"
+                    }`}
+                    title={entry.imageUrl ? "Change image" : "Add image"}
+                    disabled={!entry.active}
+                  >
+                    <ImageIcon className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                  </Button>
+
+                  {/* Entry Text Input */}
+                  <Input
+                    value={entry.text}
+                    onChange={(e) => updateEntry(entry.id, e.target.value)}
+                    className={`flex-1 border-0 bg-transparent focus-visible:ring-1 focus-visible:ring-primary/50 px-1.5 lg:px-2 py-1 h-auto text-xs lg:text-sm font-semibold ${
+                      entry.active ? "text-foreground" : "text-muted-foreground"
+                    }`}
+                    disabled={!entry.active}
+                    placeholder="Entry name"
+                  />
+
+                  {/* Remove Button */}
+                  <Button
+                    onClick={() => removeEntry(entry.id)}
+                    size="icon"
+                    variant="ghost"
+                    className="h-6 w-6 lg:h-7 lg:w-7 text-muted-foreground hover:text-white hover:bg-red-500 opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border border-transparent hover:border-red-400 rounded-md"
+                    title="Remove"
+                  >
+                    <Trash2 className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {entries.length === 0 && (
+            <div className="text-center py-6 lg:py-8 px-3 lg:px-4 border-2 border-dashed border-primary/30 rounded-lg bg-primary/5 backdrop-blur-sm relative z-10">
+              <div className="text-3xl lg:text-4xl mb-2 lg:mb-3 animate-bounce">
+                🎯
+              </div>
+              <p className="text-xs lg:text-sm font-bold text-foreground mb-1 lg:mb-1.5">
+                No Entries Yet
+              </p>
+              <p className="text-[10px] lg:text-[11px] text-muted-foreground leading-relaxed">
+                Add some names above to get started
+              </p>
+            </div>
+          )}
+        </Card>
       </div>
 
       {/* Winner Dialog */}
@@ -970,6 +966,6 @@ export const SpinWheel = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 };
