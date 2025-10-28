@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Helmet } from "react-helmet";
-import { Shield, Mail } from "lucide-react";
+import { Shield, Mail, ArrowRight, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Privacy = () => {
   return (
@@ -719,6 +720,27 @@ const Privacy = () => {
               Your privacy matters to us. Thank you for trusting Hi Honey!
             </p>
           </div>
+        </Card>
+
+        {/* Next Step Navigation */}
+        <Card className="p-6 md:p-8 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 mt-8">
+          <div className="text-center mb-4">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              Know Your Rights
+            </h3>
+            <p className="text-muted-foreground">
+              Review our terms and conditions to understand your rights and
+              responsibilities
+            </p>
+          </div>
+          <Link
+            to="/terms"
+            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mx-auto max-w-sm"
+          >
+            <FileText className="h-5 w-5" />
+            <span>Terms & Conditions</span>
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </Card>
       </article>
     </>

@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Helmet } from "react-helmet";
-import { Mail } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -215,6 +216,26 @@ const About = () => {
             Spin with confidence. Decide with joy. Choose Hi Honey.
           </p>
         </div>
+
+        {/* Next Step Navigation */}
+        <Card className="p-6 md:p-8 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20">
+          <div className="text-center mb-4">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              Ready to Get Started?
+            </h3>
+            <p className="text-muted-foreground">
+              Have questions or need help? We're here for you!
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mx-auto max-w-sm"
+          >
+            <Mail className="h-5 w-5" />
+            <span>Contact Us</span>
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </Card>
       </article>
     </>
   );

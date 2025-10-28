@@ -328,19 +328,56 @@ export const SpinWheel = () => {
         ctx.save();
         ctx.clip();
 
-        // Calculate image position and size to fill the slice
-        const sliceCenterAngle = startAngle + sliceAngle / 2;
-        const imgSize = radius * 0.8;
-        const imgDistance = radius * 0.5;
-        const imgX = Math.cos(sliceCenterAngle) * imgDistance - imgSize / 2;
-        const imgY = Math.sin(sliceCenterAngle) * imgDistance - imgSize / 2;
-
-        // Draw a color background first (semi-transparent)
-        ctx.fillStyle = entry.color + "80"; // 50% opacity
+        // Fill background with solid color as fallback
+        ctx.fillStyle = entry.color;
         ctx.fill();
 
-        // Draw the image
-        ctx.drawImage(img, imgX, imgY, imgSize, imgSize);
+        // Calculate slice dimensions to fill entire area
+        const sliceCenterAngle = startAngle + sliceAngle / 2;
+
+        // Image should cover from near center (leaving space for center circle) to outer edge
+        const innerRadius = 40; // Start after center circle
+        const outerRadius = radius;
+        const sliceWidth = outerRadius - innerRadius;
+
+        // Calculate the angular width at the outer edge
+        const arcLength = sliceAngle * outerRadius;
+
+        // Position image to fill the slice
+        const imgCenterDistance = innerRadius + sliceWidth / 2;
+        const imgCenterX = Math.cos(sliceCenterAngle) * imgCenterDistance;
+        const imgCenterY = Math.sin(sliceCenterAngle) * imgCenterDistance;
+
+        // Calculate dimensions to cover the slice (object-fit: cover behavior)
+        const imgAspect = img.width / img.height;
+        const sliceAspect = arcLength / sliceWidth;
+
+        let drawWidth, drawHeight;
+
+        if (imgAspect > sliceAspect) {
+          // Image is wider - fit to height and crop width
+          drawHeight = sliceWidth * 1.4;
+          drawWidth = drawHeight * imgAspect;
+        } else {
+          // Image is taller - fit to width and crop height
+          drawWidth = arcLength * 1.4;
+          drawHeight = drawWidth / imgAspect;
+        }
+
+        // Rotate image 180 degrees for proper orientation
+        ctx.translate(imgCenterX, imgCenterY);
+        ctx.rotate(Math.PI); // 180 degrees rotation
+        ctx.translate(-imgCenterX, -imgCenterY);
+
+        // Center the image in the slice
+        const imgX = imgCenterX - drawWidth / 2;
+        const imgY = imgCenterY - drawHeight / 2;
+
+        // Draw image with slight opacity for color blend
+        ctx.globalAlpha = 0.95;
+        ctx.drawImage(img, imgX, imgY, drawWidth, drawHeight);
+        ctx.globalAlpha = 1.0;
+
         ctx.restore();
       } else {
         // Draw solid color
@@ -352,18 +389,19 @@ export const SpinWheel = () => {
       ctx.save();
       ctx.rotate(startAngle + sliceAngle / 2);
       ctx.textAlign = "center";
-      
-      // Add text shadow for better visibility (especially over images)
-      if (img) {
-        ctx.shadowColor = "rgba(0, 0, 0, 0.8)";
-        ctx.shadowBlur = 4;
-        ctx.shadowOffsetX = 1;
-        ctx.shadowOffsetY = 1;
-      }
-      
+      ctx.textBaseline = "middle";
+
+      ctx.font = "bold 14px Inter, sans-serif";
+      const textX = radius * 0.65;
+
+      // Subtle text outline for visibility over images
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
+      ctx.lineWidth = 3;
+      ctx.strokeText(entry.text, textX, 0);
+
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 13px Inter, sans-serif";
-      ctx.fillText(entry.text, radius - 40, 4);
+      ctx.fillText(entry.text, textX, 0);
+
       ctx.restore();
     });
 
@@ -854,29 +892,53 @@ export const SpinWheel = () => {
                     </div>
                   </div>
 
-                  {/* Image URL Button */}
-                  <Button
-                    onClick={() => {
-                      const url = prompt(
-                        "Enter image URL (or leave empty to remove):",
-                        entry.imageUrl || ""
-                      );
-                      if (url !== null) {
-                        updateEntryImage(entry.id, url);
-                      }
-                    }}
-                    size="icon"
-                    variant="ghost"
-                    className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md ${
-                      entry.imageUrl
-                        ? "text-blue-600 hover:text-white hover:bg-blue-500 border border-blue-300"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent"
-                    }`}
-                    title={entry.imageUrl ? "Change image" : "Add image"}
-                    disabled={!entry.active}
-                  >
-                    <ImageIcon className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                  </Button>
+                  {/* Image Upload Button */}
+                  <div className="relative">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onload = (event) => {
+                            const dataUrl = event.target?.result as string;
+                            updateEntryImage(entry.id, dataUrl);
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      className="hidden"
+                      id={`image-upload-${entry.id}`}
+                      disabled={!entry.active}
+                    />
+                    <label
+                      htmlFor={`image-upload-${entry.id}`}
+                      className={`h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 transition-all rounded-md flex items-center justify-center cursor-pointer ${
+                        entry.imageUrl
+                          ? "text-blue-600 hover:text-white hover:bg-blue-500 border border-blue-300"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent"
+                      } ${
+                        !entry.active ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                      title={entry.imageUrl ? "Change image" : "Add image"}
+                    >
+                      <ImageIcon className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                    </label>
+                  </div>
+
+                  {/* Remove Image Button */}
+                  {entry.imageUrl && entry.active && (
+                    <Button
+                      onClick={() => updateEntryImage(entry.id, "")}
+                      size="icon"
+                      variant="ghost"
+                      className="h-6 w-6 lg:h-7 lg:w-7 flex-shrink-0 text-red-600 hover:text-white hover:bg-red-500 border border-transparent hover:border-red-400 rounded-md"
+                      title="Remove image"
+                    >
+                      <X className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
+                    </Button>
+                  )}
 
                   {/* Entry Text Input */}
                   <Input

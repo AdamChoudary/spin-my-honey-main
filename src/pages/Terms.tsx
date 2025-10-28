@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Helmet } from "react-helmet";
-import { FileText, Mail, AlertCircle } from "lucide-react";
+import { FileText, Mail, AlertCircle, ArrowRight, Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Terms = () => {
   return (
@@ -982,6 +983,26 @@ const Terms = () => {
               </p>
             </div>
           </div>
+        </Card>
+
+        {/* Next Step Navigation */}
+        <Card className="p-6 md:p-8 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 mt-8">
+          <div className="text-center mb-4">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              Ready to Spin?
+            </h3>
+            <p className="text-muted-foreground">
+              Start making decisions fun with our interactive spin wheel tool
+            </p>
+          </div>
+          <Link
+            to="/"
+            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mx-auto max-w-sm"
+          >
+            <Home className="h-5 w-5" />
+            <span>Go to Spin Wheel</span>
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </Card>
       </article>
     </>
