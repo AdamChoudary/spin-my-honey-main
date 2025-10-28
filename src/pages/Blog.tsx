@@ -1,6 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Helmet } from "react-helmet";
-import { BookOpen, Mail } from "lucide-react";
+import {
+  BookOpen,
+  Mail,
+  Youtube,
+  Twitter,
+  Instagram,
+  Share2,
+} from "lucide-react";
 
 const Blog = () => {
   return (
@@ -698,6 +705,81 @@ const Blog = () => {
           </div>
         </Card>
 
+        <Card className="p-8 md:p-10 mt-8 border shadow-sm">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Stay Connected
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                Follow us for the latest updates, decision-making tips, and
+                creative ways to use spin wheels
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              <a
+                href="https://www.youtube.com/channel/UCqcfMxSdT-L7HO_gG5ps5DQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-border hover:border-red-500 bg-background hover:bg-red-50 dark:hover:bg-red-950/30 transition-all duration-200"
+                aria-label="Follow us on YouTube"
+              >
+                <Youtube className="h-5 w-5 text-red-600 dark:text-red-500" />
+                <span className="font-medium text-sm text-foreground">
+                  YouTube
+                </span>
+              </a>
+
+              <a
+                href="https://x.com/HiHoney1146P"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-border hover:border-blue-500 bg-background hover:bg-blue-50 dark:hover:bg-blue-950/30 transition-all duration-200"
+                aria-label="Follow us on Twitter"
+              >
+                <Twitter className="h-5 w-5 text-blue-600 dark:text-blue-500" />
+                <span className="font-medium text-sm text-foreground">
+                  Twitter
+                </span>
+              </a>
+
+              <a
+                href="https://www.pinterest.com/hihoney1146/_pins/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-border hover:border-rose-500 bg-background hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-all duration-200"
+                aria-label="Follow us on Pinterest"
+              >
+                <svg
+                  className="h-5 w-5 text-rose-600 dark:text-rose-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                </svg>
+                <span className="font-medium text-sm text-foreground">
+                  Pinterest
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/hihoney1146/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 px-5 py-3 rounded-lg border-2 border-border hover:border-pink-500 bg-background hover:bg-pink-50 dark:hover:bg-pink-950/30 transition-all duration-200"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="h-5 w-5 text-pink-600 dark:text-pink-500" />
+                <span className="font-medium text-sm text-foreground">
+                  Instagram
+                </span>
+              </a>
+            </div>
+          </div>
+        </Card>
+
         <div className="grid md:grid-cols-2 gap-6 mt-8">
           <Card className="p-6 md:p-8 bg-primary/5 border border-primary/20">
             <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
@@ -734,13 +816,6 @@ const Blog = () => {
               </a>
             </div>
           </Card>
-        </div>
-
-        <div className="text-center mt-8 p-6 bg-muted/30 rounded-lg">
-          <p className="text-muted-foreground italic">
-            Remember this that you will use this content exactly same in their
-            pages implement this first.
-          </p>
         </div>
       </article>
     </>
