@@ -658,32 +658,6 @@ const Index = () => {
                 </Link>
               </Card>
             </div>
-
-            {/* Additional Links for SEO */}
-            <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-7 md:pt-8 border-t border-border/50">
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm">
-                <Link
-                  to="/privacy"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link
-                  to="/terms"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Terms & Conditions
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link
-                  to="/disclaimer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Disclaimer
-                </Link>
-              </div>
-            </div>
           </div>
         </section>
       </article>
