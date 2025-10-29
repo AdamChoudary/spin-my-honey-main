@@ -224,11 +224,6 @@ const Index = () => {
               Free Online Spin Wheel - The Ultimate Random Name Picker &
               Decision Maker Tool
             </p>
-            <p className="text-xs sm:text-sm md:text-sm lg:text-base text-muted-foreground mb-3 sm:mb-4 max-w-2xl mx-auto leading-relaxed px-2">
-              Spin the wheel for instant random decisions. Perfect for
-              classrooms, giveaways, games, and team choices. 100% free,
-              customizable, and fun!
-            </p>
           </div>
 
           <SpinWheel />

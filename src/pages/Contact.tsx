@@ -83,7 +83,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us - Hi Honey Spin Wheel</title>
+        <title>Contact Us | Hi Honey</title>
         <meta
           name="description"
           content="Get in touch with the Hi Honey team. We'd love to hear your feedback, suggestions, or answer any questions you have."

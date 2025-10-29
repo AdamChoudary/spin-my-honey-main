@@ -13,10 +13,10 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>The Ultimate Guide to Spin Wheel - Hi Honey</title>
+        <title>Blog | Hi Honey</title>
         <meta
           name="description"
-          content="Learn everything about spin wheels - from decision-making to classroom activities, business applications, and more. Complete guide to using spin wheels effectively."
+          content="Read our blog for the latest news, tips, and tricks for using spin wheels effectively."
         />
         <link rel="canonical" href="https://hihoney.site/blog" />
       </Helmet>

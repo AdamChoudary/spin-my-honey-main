@@ -8,7 +8,7 @@ const Disclaimer = () => {
   return (
     <>
       <Helmet>
-        <title>Disclaimer - Hi Honey Spin Wheel</title>
+        <title>Disclaimer | Hi Honey</title>
         <meta
           name="description"
           content="Read the disclaimer for using Hi Honey spin wheel tool. Understand the limitations, responsibilities, and proper use of our random selection service."

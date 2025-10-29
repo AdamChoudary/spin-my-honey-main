@@ -78,7 +78,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+            <div className="hidden lg:flex items-center gap-1.5 xl:gap-3">
               {navLinks.map((link) => {
                 const active = isActive(link.to);
                 return (
@@ -104,7 +104,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 );
               })}
               <div className="flex items-center gap-2 ml-2">
-                <ThemeToggle />
+                <div className="hidden lg:block">
+                  <ThemeToggle />
+                </div>
                 <SocialShare />
               </div>
             </div>
@@ -123,7 +125,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[85vw] max-w-[320px] sm:w-[320px]"
+                className="w-[85vw] max-w-[340px] sm:w-[340px] flex flex-col"
               >
                 <SheetHeader>
                   <SheetTitle className="flex items-center gap-2">
@@ -152,7 +154,15 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     </span>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-2 mt-8">
+
+                {/* Theme Toggle - Top of mobile menu */}
+                <div className="flex items-center justify-between px-4 py-3 mt-6 mb-4 bg-muted/20 rounded-lg border border-border">
+                  <span className="text-sm font-medium">Theme</span>
+                  <ThemeToggle />
+                </div>
+
+                {/* Navigation Links */}
+                <div className="flex flex-col gap-2">
                   {navLinks.map((link) => {
                     const Icon = link.icon;
                     const active = isActive(link.to);
@@ -171,30 +181,26 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                           }
                         `}
                       >
-                        <Icon className="h-5 w-5" />
+                        <Icon className="h-5 w-5 flex-shrink-0" />
                         <span className="text-base">{link.label}</span>
                       </Link>
                     );
                   })}
                 </div>
-                <div className="absolute bottom-8 left-6 right-6">
+
+                {/* Contact Info - Bottom */}
+                <div className="absolute bottom-6 left-6 right-6">
                   <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                    <p className="text-sm text-center text-muted-foreground">
-                      Need help? Contact us at
+                    <p className="text-xs text-center text-muted-foreground mb-1">
+                      Need help? Contact us
                     </p>
                     <a
                       href="mailto:hihoney1146@gmail.com"
-                      className="text-sm font-semibold text-primary hover:underline block text-center mt-1"
+                      className="text-sm font-semibold text-primary hover:underline block text-center"
                     >
                       hihoney1146@gmail.com
                     </a>
                   </div>
-                </div>
-
-                {/* Mobile Theme Toggle and Share */}
-                <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
-                  <ThemeToggle />
-                  <span className="text-sm text-muted-foreground">Theme</span>
                 </div>
               </SheetContent>
             </Sheet>
