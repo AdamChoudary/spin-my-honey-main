@@ -104,74 +104,68 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 );
               })}
               <div className="flex items-center gap-2 ml-2">
-                <div className="hidden lg:block">
-                  <ThemeToggle />
-                </div>
+                <ThemeToggle />
                 <SocialShare />
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild className="lg:hidden">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="relative h-10 w-10 hover:bg-primary/10"
+            {/* Mobile Actions - Theme Toggle & Menu */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <ThemeToggle />
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="relative h-10 w-10 hover:bg-primary/10"
+                  >
+                    <Menu className="h-5 w-5 sm:h-6 sm:w-6 transition-transform" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent
+                  side="right"
+                  className="w-[85vw] max-w-[340px] sm:w-[340px] flex flex-col"
                 >
-                  <Menu className="h-5 w-5 sm:h-6 sm:w-6 transition-transform" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="w-[85vw] max-w-[340px] sm:w-[340px] flex flex-col"
-              >
-                <SheetHeader>
-                  <SheetTitle className="flex items-center gap-2">
-                    <OptimizedImage
-                      src={logo}
-                      alt="Hi Honey Logo"
-                      width={32}
-                      height={32}
-                      className="h-8 w-8"
-                      loading="eager"
-                    />
-                    <span className="font-bold">
-                      <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
-                        Hi
+                  <SheetHeader>
+                    <SheetTitle className="flex items-center gap-2">
+                      <OptimizedImage
+                        src={logo}
+                        alt="Hi Honey Logo"
+                        width={32}
+                        height={32}
+                        className="h-8 w-8"
+                        loading="eager"
+                      />
+                      <span className="font-bold">
+                        <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
+                          Hi
+                        </span>
+                        <span className="bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                          {" "}
+                          Ho
+                        </span>
+                        <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                          ne
+                        </span>
+                        <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                          y
+                        </span>
                       </span>
-                      <span className="bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
-                        {" "}
-                        Ho
-                      </span>
-                      <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-                        ne
-                      </span>
-                      <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                        y
-                      </span>
-                    </span>
-                  </SheetTitle>
-                </SheetHeader>
+                    </SheetTitle>
+                  </SheetHeader>
 
-                {/* Theme Toggle - Top of mobile menu */}
-                <div className="flex items-center justify-between px-4 py-3 mt-6 mb-4 bg-muted/20 rounded-lg border border-border">
-                  <span className="text-sm font-medium">Theme</span>
-                  <ThemeToggle />
-                </div>
-
-                {/* Navigation Links */}
-                <div className="flex flex-col gap-2">
-                  {navLinks.map((link) => {
-                    const Icon = link.icon;
-                    const active = isActive(link.to);
-                    return (
-                      <Link
-                        key={link.to}
-                        to={link.to}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`
+                  {/* Navigation Links */}
+                  <div className="flex flex-col gap-2 mt-8">
+                    {navLinks.map((link) => {
+                      const Icon = link.icon;
+                      const active = isActive(link.to);
+                      return (
+                        <Link
+                          key={link.to}
+                          to={link.to}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`
                           flex items-center gap-3 px-4 py-3 rounded-lg
                           transition-all duration-200
                           ${
@@ -180,30 +174,31 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                               : "text-foreground/70 hover:bg-primary/5 hover:text-primary border-l-4 border-transparent"
                           }
                         `}
-                      >
-                        <Icon className="h-5 w-5 flex-shrink-0" />
-                        <span className="text-base">{link.label}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-
-                {/* Contact Info - Bottom */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                    <p className="text-xs text-center text-muted-foreground mb-1">
-                      Need help? Contact us
-                    </p>
-                    <a
-                      href="mailto:hihoney1146@gmail.com"
-                      className="text-sm font-semibold text-primary hover:underline block text-center"
-                    >
-                      hihoney1146@gmail.com
-                    </a>
+                        >
+                          <Icon className="h-5 w-5 flex-shrink-0" />
+                          <span className="text-base">{link.label}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+
+                  {/* Contact Info - Bottom */}
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <p className="text-xs text-center text-muted-foreground mb-1">
+                        Need help? Contact us
+                      </p>
+                      <a
+                        href="mailto:hihoney1146@gmail.com"
+                        className="text-sm font-semibold text-primary hover:underline block text-center"
+                      >
+                        hihoney1146@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </nav>
       </header>

@@ -227,11 +227,11 @@ export const SpinWheel = () => {
       }
     }
     return [
-      { id: "1", text: "Ali", color: defaultColors[0], active: true },
-      { id: "2", text: "Beatriz", color: defaultColors[1], active: true },
-      { id: "3", text: "Charles", color: defaultColors[2], active: true },
-      { id: "4", text: "Diya", color: defaultColors[3], active: true },
-      { id: "5", text: "Eric", color: defaultColors[4], active: true },
+      { id: "1", text: "Jacob", color: defaultColors[0], active: true },
+      { id: "2", text: "Abdal", color: defaultColors[1], active: true },
+      { id: "3", text: "Jahangir", color: defaultColors[2], active: true },
+      { id: "4", text: "Adam", color: defaultColors[3], active: true },
+      { id: "5", text: "Mudabber", color: defaultColors[4], active: true },
       { id: "6", text: "Gabriel", color: defaultColors[5], active: true },
       { id: "7", text: "Hanna", color: defaultColors[6], active: true },
     ];
