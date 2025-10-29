@@ -736,9 +736,9 @@ export const SpinWheel = () => {
         )}
       </div>
 
-      {/* Controls Section - Right Sidebar - Fixed to top right like wheelofnames.com */}
-      <div className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[420px] px-4 lg:px-0 mt-8 lg:mt-0 lg:fixed lg:right-0 lg:top-[64px] lg:h-[calc(100vh-64px)] lg:z-40">
-        <Card className="p-4 lg:p-5 xl:p-6 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full h-full flex flex-col">
+      {/* Controls Section - Right Sidebar */}
+      <div className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[420px] px-4 lg:px-0 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:z-40">
+        <Card className="p-4 lg:p-5 xl:p-6 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full flex flex-col">
           {/* Header */}
           <div className="mb-3 lg:mb-4 relative z-10">
             <div className="flex items-center justify-between mb-2">

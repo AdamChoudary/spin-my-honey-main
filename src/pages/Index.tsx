@@ -199,7 +199,7 @@ const Index = () => {
       <article>
         <section
           id="spin-wheel"
-          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-b from-background to-muted/20"
+          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-b from-background to-muted/20 relative"
           itemScope
           itemType="https://schema.org/WebPageElement"
         >
