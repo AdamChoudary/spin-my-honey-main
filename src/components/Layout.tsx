@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/sheet";
 import { OptimizedImage } from "./OptimizedImage";
 import { SocialShare } from "./SocialShare";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -79,36 +80,31 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-2 xl:gap-3">
               {navLinks.map((link) => {
-                const Icon = link.icon;
                 const active = isActive(link.to);
                 return (
                   <Link
                     key={link.to}
                     to={link.to}
                     className={`
-                      relative px-2 xl:px-3 py-2 rounded-lg font-medium text-sm xl:text-base
+                      relative px-3 xl:px-4 py-2 rounded-lg font-medium text-sm xl:text-base
                       transition-all duration-300 ease-out
-                      flex items-center gap-1.5 xl:gap-2
                       ${
                         active
                           ? "text-primary bg-primary/10 shadow-sm"
                           : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                       }
-                      group whitespace-nowrap
+                      whitespace-nowrap
                     `}
                   >
-                    <Icon className="h-4 w-4 xl:h-5 xl:w-5 transition-transform group-hover:scale-110 flex-shrink-0" />
-                    <span className="hidden xl:inline">{link.label}</span>
-                    <span className="xl:hidden">
-                      {link.label.substring(0, 1)}
-                    </span>
+                    <span>{link.label}</span>
                     {active && (
                       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full" />
                     )}
                   </Link>
                 );
               })}
-              <div className="ml-2">
+              <div className="flex items-center gap-2 ml-2">
+                <ThemeToggle />
                 <SocialShare />
               </div>
             </div>
@@ -193,6 +189,12 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                       hihoney1146@gmail.com
                     </a>
                   </div>
+                </div>
+
+                {/* Mobile Theme Toggle and Share */}
+                <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border">
+                  <ThemeToggle />
+                  <span className="text-sm text-muted-foreground">Theme</span>
                 </div>
               </SheetContent>
             </Sheet>

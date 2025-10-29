@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,12 +18,13 @@ export default {
       },
     },
     screens: {
-      'xs': '475px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      xs: "475px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1440px",
+      "3xl": "1920px",
     },
     extend: {
       colors: {
@@ -90,16 +96,16 @@ export default {
         },
         "spin-wheel": {
           "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(1800deg)" }
+          "100%": { transform: "rotate(1800deg)" },
         },
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" }
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "bounce-in": {
           "0%": { transform: "scale(0.8)", opacity: "0" },
           "50%": { transform: "scale(1.05)" },
-          "100%": { transform: "scale(1)", opacity: "1" }
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
       },
       animation: {
@@ -114,8 +120,8 @@ export default {
         "gradient-hero": "var(--gradient-hero)",
       },
       boxShadow: {
-        "glow": "var(--shadow-glow)",
-        "card": "var(--shadow-card)",
+        glow: "var(--shadow-glow)",
+        card: "var(--shadow-card)",
       },
     },
   },

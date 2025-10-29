@@ -1,6 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Helmet } from "react-helmet";
-import { FileText, Mail, AlertCircle, ArrowRight, Home } from "lucide-react";
+import {
+  FileText,
+  Mail,
+  AlertCircle,
+  ArrowRight,
+  Home,
+  BookOpen,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Terms = () => {
@@ -18,7 +25,7 @@ const Terms = () => {
       <article className="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
         <div className="text-center mb-8 md:mb-12">
           <FileText className="h-16 w-16 md:h-20 md:w-20 mx-auto text-primary mb-4" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             Terms and Conditions
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
@@ -983,6 +990,24 @@ const Terms = () => {
               </p>
             </div>
           </div>
+        </Card>
+
+        {/* Blog Link Navigation */}
+        <Card className="p-6 md:p-8 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-2 border-primary/20 mt-8">
+          <div className="text-center mb-4">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">Learn More</h3>
+            <p className="text-muted-foreground">
+              Discover tips, tricks, and creative ways to use spin wheels
+            </p>
+          </div>
+          <Link
+            to="/blog"
+            className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mx-auto max-w-sm"
+          >
+            <BookOpen className="h-5 w-5" />
+            <span>Read Our Blog</span>
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </Card>
 
         {/* Next Step Navigation */}

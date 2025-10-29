@@ -93,10 +93,11 @@ const Contact = () => {
 
       <section className="container mx-auto px-4 py-12 max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+          <Mail className="h-16 w-16 md:h-20 md:w-20 mx-auto text-primary mb-4" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             Get in Touch
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground">
             We'd love to hear from you! Send us a message and we'll respond as
             soon as possible.
           </p>

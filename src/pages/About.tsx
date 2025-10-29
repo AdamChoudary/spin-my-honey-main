@@ -17,10 +17,10 @@ const About = () => {
 
       <article className="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             About Us
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Making Decisions Fun, One Spin at a Time
           </p>
         </div>

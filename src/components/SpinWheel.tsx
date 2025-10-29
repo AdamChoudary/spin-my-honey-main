@@ -642,11 +642,11 @@ export const SpinWheel = () => {
   const activeEntries = entries.filter((entry) => entry.active);
 
   return (
-    <>
+    <div className="relative w-full max-w-[1600px] mx-auto">
       {/* Wheel Section - Centered */}
-      <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 w-full px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:px-6 lg:px-8 lg:pr-[360px] xl:pr-[420px] 2xl:pr-[440px]">
         {/* Wheel Card */}
-        <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto relative">
+        <div className="w-full max-w-[240px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] 2xl:max-w-[420px] mx-auto relative">
           <canvas
             ref={canvasRef}
             width={350}
@@ -661,7 +661,7 @@ export const SpinWheel = () => {
         </div>
 
         {/* Spin Button */}
-        <div className="w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto space-y-2">
+        <div className="w-full max-w-[240px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] 2xl:max-w-[420px] mx-auto space-y-2">
           <Button
             onClick={spinWheel}
             disabled={isSpinning || activeEntries.length < 2}
@@ -695,7 +695,7 @@ export const SpinWheel = () => {
         {/* Winner Display */}
         {winner && (
           <Card
-            className="p-3 sm:p-4 lg:p-5 w-full max-w-[240px] xs:max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] xl:max-w-[380px] mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
+            className="p-3 sm:p-4 lg:p-5 w-full max-w-[240px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] 2xl:max-w-[420px] mx-auto border-2 shadow-2xl animate-in fade-in zoom-in duration-500 relative overflow-hidden backdrop-blur-sm"
             style={{
               backgroundColor: `${winnerColor}10`,
               borderColor: winnerColor,
@@ -737,8 +737,8 @@ export const SpinWheel = () => {
       </div>
 
       {/* Controls Section - Right Sidebar */}
-      <div className="w-full lg:w-[340px] xl:w-[380px] px-4 lg:px-0 mt-6 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:h-[90vh]">
-        <Card className="p-4 lg:p-5 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full h-full flex flex-col">
+      <div className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[420px] px-4 lg:px-0 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:max-h-[90vh]">
+        <Card className="p-4 lg:p-5 xl:p-6 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full lg:h-full flex flex-col">
           {/* Header */}
           <div className="mb-3 lg:mb-4 relative z-10">
             <div className="flex items-center justify-between mb-2">
@@ -796,27 +796,30 @@ export const SpinWheel = () => {
             <div className="grid grid-cols-3 gap-1.5 lg:gap-2">
               <Button
                 onClick={shuffleEntries}
+                disabled={isSpinning}
                 variant="outline"
                 size="sm"
-                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-all border-2 shadow-sm hover:shadow-md"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-all border-2 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Shuffle className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
                 Shuffle
               </Button>
               <Button
                 onClick={sortEntries}
+                disabled={isSpinning}
                 variant="outline"
                 size="sm"
-                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-purple-50 hover:border-purple-500 hover:text-purple-600 transition-all border-2 shadow-sm hover:shadow-md"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-purple-50 hover:border-purple-500 hover:text-purple-600 transition-all border-2 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ArrowUpDown className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
                 Sort
               </Button>
               <Button
                 onClick={resetEntries}
+                disabled={isSpinning}
                 variant="outline"
                 size="sm"
-                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-all border-2 shadow-sm hover:shadow-md"
+                className="h-8 lg:h-9 text-[10px] lg:text-[11px] font-bold hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-all border-2 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <RotateCcw className="h-3 w-3 lg:h-3.5 lg:w-3.5 mr-0.5 lg:mr-1" />
                 Reset
@@ -1031,6 +1034,6 @@ export const SpinWheel = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 };

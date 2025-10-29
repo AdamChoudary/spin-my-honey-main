@@ -19,10 +19,10 @@ const Disclaimer = () => {
       <article className="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
         <div className="text-center mb-8 md:mb-12">
           <AlertCircle className="h-16 w-16 md:h-20 md:w-20 mx-auto text-primary mb-4" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             Disclaimer
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Please read this disclaimer carefully before using Hi Honey
           </p>
         </div>
