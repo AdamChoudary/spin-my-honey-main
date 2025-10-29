@@ -642,7 +642,7 @@ export const SpinWheel = () => {
   const activeEntries = entries.filter((entry) => entry.active);
 
   return (
-    <div className="relative w-full max-w-[1600px] mx-auto">
+    <>
       {/* Wheel Section - Centered */}
       <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:px-6 lg:px-8 lg:pr-[360px] xl:pr-[420px] 2xl:pr-[440px]">
         {/* Wheel Card */}
@@ -736,9 +736,9 @@ export const SpinWheel = () => {
         )}
       </div>
 
-      {/* Controls Section - Right Sidebar */}
-      <div className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[420px] px-4 lg:px-0 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0 lg:max-h-[90vh]">
-        <Card className="p-4 lg:p-5 xl:p-6 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full lg:h-full flex flex-col">
+      {/* Controls Section - Right Sidebar - Fixed to top right like wheelofnames.com */}
+      <div className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[420px] px-4 lg:px-0 mt-8 lg:mt-0 lg:fixed lg:right-0 lg:top-[64px] lg:h-[calc(100vh-64px)] lg:z-40">
+        <Card className="p-4 lg:p-5 xl:p-6 bg-card/95 border-2 border-border backdrop-blur-sm relative overflow-hidden w-full h-full flex flex-col">
           {/* Header */}
           <div className="mb-3 lg:mb-4 relative z-10">
             <div className="flex items-center justify-between mb-2">
@@ -1034,6 +1034,6 @@ export const SpinWheel = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 };

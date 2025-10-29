@@ -199,11 +199,11 @@ const Index = () => {
       <article>
         <section
           id="spin-wheel"
-          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-b from-background to-muted/20 relative"
+          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-b from-background to-muted/20"
           itemScope
           itemType="https://schema.org/WebPageElement"
         >
-          <div className="max-w-7xl mx-auto text-center mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto text-center mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6 lg:px-8 lg:pr-[360px] xl:pr-[420px] 2xl:pr-[440px]">
             <h1 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 tracking-tight">
               <span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
                 Spin Wh
