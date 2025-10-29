@@ -23,8 +23,7 @@ const Blog = () => {
 
       <article className="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
         <div className="text-center mb-8 md:mb-12">
-          <BookOpen className="h-16 w-16 md:h-20 md:w-20 mx-auto text-primary mb-4" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
             The Ultimate Guide to Spin Wheel
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
